@@ -1,0 +1,15 @@
+.filtros{
+    display: flex;
+    margin-left: 7%;
+    margin-top: 10%;
+}
+.filtro{
+    width: 228px;
+    height: 35px;
+    text-align: center;
+    font-size: 1.7rem;
+  
+}
+.filtro-ativo{
+    background-color: #5F5B8E;
+}

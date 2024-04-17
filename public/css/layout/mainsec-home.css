@@ -1,0 +1,13 @@
+main {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(#5F5B8E,#000, #000);
+    min-height: 100vh;
+    padding: 7% 0 0 7%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+html{
+    overflow-y: scroll;
+}

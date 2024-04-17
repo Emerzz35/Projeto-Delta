@@ -1,0 +1,30 @@
+.delta {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+section {
+    padding: 0 19%;
+}
+
+h5 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.delta-text h1 {
+    font-size: 90px;
+    line-height: 1;
+    margin: 0 0 45px;
+}
+
+.delta-img img {
+    width: 700px;
+    height: auto;
+}
