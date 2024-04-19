@@ -37,8 +37,10 @@
         @foreach($produtos as $item)
           @if(($item->PRODUTO_ID == 155) or ($item->PRODUTO_ID == 1) or ($item->PRODUTO_ID == 154))
           <div class="slide">
+          <a href="{{route('produto.show', $item->PRODUTO_ID)}}">
               <img src="{{ $item->Imagens->first()->IMAGEM_URL }}" alt="{{ $item->PRODUTO_NOME }}">
-          </div>
+          </a>
+            </div>
           @endif 
           @endforeach
         </section>
