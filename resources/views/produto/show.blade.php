@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" type="text/css" href="/slick/slick.css">
   <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css">
-  <link rel="stylesheet" href="/css/main-home.css">
+  <link rel="stylesheet" href="/css/main-show.css">
 </head>
 
 <body>
@@ -32,10 +32,10 @@
 <h1>{{$produto->PRODUTO_NOME}}</h1>
 <main>
    <?php // Carrossel ?>
-   <section class="single-item slider">  
+   <section class="single-item">  
    @foreach($produto->Imagens as $imagem)
    @if($produto->Imagens->isNotEmpty())
-   <div class="slide">
+   <div class="">
    <img src="{{$imagem->IMAGEM_URL}}" alt="">
    </div>
    @endif
@@ -111,11 +111,9 @@
   <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
   <script src="/slick/slick.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
-    $(".single-item").slick({
-      variableWidth: true,
-      dots: true,
-      centerMode: true,
-    });
+   $('.single-item').slick({
+      dots: true
+   })
   </script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
