@@ -2,8 +2,7 @@
 @import 'base/grafia.css';
 @import 'base/reset.css';
 @import 'layout/body.css';
-
+@import 'layout/CarrosselShow.css';
 @import 'layout/nav.css';
-@import 'mainsec-show.css';
 @import 'layout/card.css';
 @import 'layout/dropdown.css';
