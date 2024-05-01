@@ -61,6 +61,19 @@
         <div class="eldenring"><img src="./assets/Assets temporarios/eldenring.png" alt=""></div>
         <div class="horizon"><img src="./assets/Assets temporarios/horizon.png" alt=""></div>
     </main>
+    <footer>
+        <img src="assets/logo.png" alt="logo delta" id='delta-footer'>
+        <h2 id='h2-footer'>Delta</h2>
+        <div id="vr"></div>
+        <p id='p-footer'> Precisa de ajuda ou suporte técnico? Acesse nossa seção de suporte para obter assistência!</p>
+        <div id='div-footer'>
+            <a href="">Home</a> | 
+            <a href="">Suporte</a> | 
+            <a href="">Termos legais</a> | 
+            <a href="">Política de privacidade</a>
+        </div>
+        
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

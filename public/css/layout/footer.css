@@ -1,0 +1,35 @@
+footer {
+    background-color: #55527D;
+    align-items: center;
+    text-align: center;
+}
+
+#delta-footer {
+    display: inline-flex;
+    width: 80px;
+    height: auto;
+}
+
+#h2-footer {
+    display: inline-flex;
+    font-weight: 100;
+}
+
+#p-footer {
+    display: inline-flex;
+}
+
+.a-footer {
+    display: block;
+}
+
+#div-footer {
+    margin-top: -25px;
+    margin-bottom: 5px;
+}
+
+#vr {
+    display: inline;
+    border-left: 2px solid #fff;
+    height: 500px;
+}
