@@ -29,13 +29,14 @@
       </div>
       <div class="bx bx-menu" id="menu-icon"></div>
    </header>
+
    <main>
       <h1>{{$produto->PRODUTO_NOME}}</h1>
-      <section class="Produto">
-         <div class="ProdutoHorizontal">
+      <section class="Produto Container">
+         <div class="ProdutoHorizontal row align-items-end">
             <?php // Carrossel 
             ?>
-            <section class="single-item slider">
+            <section class="single-item slider col-sm-8">
                @foreach($produto->Imagens as $imagem)
                @if($produto->Imagens->isNotEmpty())
                <div class="">
@@ -46,7 +47,7 @@
             </section>
             <?php // Imagem da direita 
             ?>
-            <div class="ProdutoVertical">
+            <div class="ProdutoVertical col-sm-4">
                @if($produto->Imagens->isNotEmpty())
                <img src="{{ $produto->Imagens->first()->IMAGEM_URL }}" alt="" id="ImagemDireita">
                @endif
