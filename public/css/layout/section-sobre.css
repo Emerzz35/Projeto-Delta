@@ -1,5 +1,4 @@
 .delta {
-    height: 100%;
     width: 100%;
     min-height: 100vh;
     position: relative;
@@ -27,4 +26,10 @@ h5 {
 .delta-img img {
     width: 700px;
     height: auto;
+}
+
+#arrow { 
+    width: 24px;
+    left: 0;
+    text-align: center;
 }

@@ -12,6 +12,7 @@ footer {
 
 #h2-footer {
     display: inline-flex;
+    size: 2%;
     font-weight: 100;
 }
 
@@ -26,10 +27,4 @@ footer {
 #div-footer {
     margin-top: -25px;
     margin-bottom: 5px;
-}
-
-#vr {
-    display: inline;
-    border-left: 2px solid #fff;
-    height: 500px;
 }
