@@ -16,9 +16,9 @@
 
 <body>
    <header>
-      <a href="#" class="logo"><img src="/assets/logo.png" alt="Logo Delta"> DELTA </a>
+      <a href="{{ route('produto.index')}}" class="logo"><img src="/assets/logo.png" alt="Logo Delta"> DELTA </a>
       <ul class="navlist">
-         <li><a href="home.html" id="pg-atual">Home</a></li>
+         <li><a href="{{ route('produto.index')}}" id="pg-atual">Home</a></li>
          <li><a href="#">Comunidade</a></li>
          <li><a href="#">Sobre </a></li>
       </ul>
@@ -31,9 +31,11 @@
    </header>
 
    <main>
+      <div class="FundoH1">
       <h1>{{$produto->PRODUTO_NOME}}</h1>
+      </div>
       <section class="Produto Container">
-         <div class="ProdutoHorizontal row align-items-end">
+         <div class="ProdutoHorizontal row">
             <?php // Carrossel 
             ?>
             <section class="single-item slider col-sm-8">
@@ -52,8 +54,8 @@
                <img src="{{ $produto->Imagens->first()->IMAGEM_URL }}" alt="" id="ImagemDireita">
                @endif
 
-               <P>{{$produto->PRODUTO_DESC}}</P>
-               <P>Categoria: {{$produto->Categoria->CATEGORIA_NOME}}</P>
+               <P class="ProdutoDesc">{{$produto->PRODUTO_DESC}}</P>
+               <P>Categoria: <a href=""> {{$produto->Categoria->CATEGORIA_NOME}} </a></P>
             </div>
         </div>
             <div class="BtFundo">
@@ -62,27 +64,30 @@
             </div>
          
 
-         <section class="Comprar">
+
+      </section>
+      <section class="Comprar">
             <p>Comprar {{$produto->PRODUTO_NOME}}</p>
             <div class="BtFundo">
                <P> R$ {{$produto->PRODUTO_PRECO}} </P>
-               <div class="btVerde"> + Carrinho </div>
+               <div class="btVerde"> <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon> </div>
             </div>
          </section>
-      </section>
-   </main>
+   
 
    <?php // Outros Produtos 
    ?>
-
+<h2>Outros produtos da categoria: <a href=""> {{$produto->Categoria->CATEGORIA_NOME}} </a></h2>
    <section class="Outros">
-
+     
       <div class="cardall">
          <div class="card-group " id="scrollableDiv">
+            
 
             @foreach($produtos as $item)
             @if(($item->CATEGORIA_ID == $produto->CATEGORIA_ID) and ($item->PRODUTO_ID <> $produto->PRODUTO_ID))
-               <div class="card mb-3 cardon">
+            <a href="{{route('produto.show', $item->PRODUTO_ID)}}">
+               <div class="card mb-3">
                   <div class="row g-0">
                      <div class="col-md-4 card-col">
                         @if($item->Imagens->isNotEmpty())
@@ -101,11 +106,13 @@
                            <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
                         </div>
                      </div>
+                     </div>
+               </div>
+</a>
                      @endif
                      @endforeach
 
-                  </div>
-               </div>
+                  
          </div>
       </div>
 
@@ -116,6 +123,7 @@
          </div>
       </div>
    </section>
+   </main>
 
    <!--Script do Slick e do Bootstrap-->
    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>

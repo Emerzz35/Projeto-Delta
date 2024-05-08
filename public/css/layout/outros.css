@@ -1,0 +1,10 @@
+.Outros{
+    display: flex;
+  }
+  h2{
+    margin-top:10vh;
+  }
+  .card-group {
+    padding-right: 0;
+    max-width: 737px;
+  }
