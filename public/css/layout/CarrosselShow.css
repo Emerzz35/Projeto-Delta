@@ -74,7 +74,7 @@ main{
 }  
 
 .Produto{
-  background-color: rgba(145, 135, 255, 0.34);
+  background-color: rgba(18, 18, 18, 0.34);
   width: 1076px;
   height: 525px;
 
@@ -164,4 +164,5 @@ body{
 .FundoH1{
   width: 1076px;
   margin-top: 9vh;
+  display: flex;
 }

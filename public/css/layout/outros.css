@@ -1,10 +1,40 @@
 .Outros{
     display: flex;
+    max-width: 1076px;
+    
   }
   h2{
-    margin-top:10vh;
+    margin-bottom: 3vh;
   }
   .card-group {
     padding-right: 0;
     max-width: 737px;
+    max-height: 293px;
+    padding-bottom: 0;
   }
+  .CategoriaDesc{
+    background-color: rgba(145, 135, 255, 0.34);
+    width: 351px;
+    height: 159px;
+    border-radius: 8px;
+    overflow-y: scroll;
+  }
+  .CategoriaDesc::-webkit-scrollbar {
+    border-radius: 50px;
+    height: 8px;
+    width: 8px;
+  }
+  .CategoriaDesc::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #ffffff00;
+  }
+  
+  
+  .CategoriaDesc::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+    background-color: #a9a7ba91;
+  }
+  .Categoria h2{
+    margin-bottom: 1vh;
+  }
+  

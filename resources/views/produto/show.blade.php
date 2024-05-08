@@ -77,8 +77,10 @@
 
    <?php // Outros Produtos 
    ?>
+   <div class="FundoH1">
 <h2>Outros produtos da categoria: <a href=""> {{$produto->Categoria->CATEGORIA_NOME}} </a></h2>
-   <section class="Outros">
+   </div>  
+<section class="Outros">
      
       <div class="cardall">
          <div class="card-group " id="scrollableDiv">
