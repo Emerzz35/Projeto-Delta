@@ -70,7 +70,7 @@
             <p>Comprar {{$produto->PRODUTO_NOME}}</p>
             <div class="BtFundo">
                <P> R$ {{$produto->PRODUTO_PRECO}} </P>
-               <div class="btVerde"> <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon> </div>
+               <a class="btVerde" href="{{ route('carrinho.store',$produto)}}"> <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon> </a>
             </div>
          </section>
    

@@ -28,28 +28,26 @@
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
     <section class="formu">
-    <form class="fm">
+    <form class="fm" method="POST" action="{{ route('register') }}">
+        @csrf
+
         <div class="form-group">
-            <label for="formGroupExampleInput">Nome</label>
-            <input type="text" class="form-control fr" id="formGroupExampleInput" placeholder="Nome completo">
+            <label for="USUARIO_NOME">Nome</label>
+            <input type="text" class="form-control fr" id="USUARIO_NOME" name="USUARIO_NOME" placeholder="Nome completo">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">E-mail</label>
-            <input type="text" class="form-control fr" id="formGroupExampleInput2" placeholder="E-mail">
+            <label for="USUARIO_EMAIL">E-mail</label>
+            <input type="text" class="form-control fr" id="USUARIO_EMAIL" name="USUARIO_EMAIL" placeholder="E-mail">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">CPF</label>
-            <input type="text" class="form-control fr" id="formGroupExampleInput2" placeholder="Seu CPF">
+            <label for="USUARIO_CPF">CPF</label>
+            <input type="text" class="form-control fr" id="USUARIO_CPF" name="USUARIO_CPF" placeholder="Seu CPF">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">Senha</label>
-            <input type="text" class="form-control fr" id="formGroupExampleInput2" placeholder="Senha">
+            <label for="USUARIO_SENHA">Senha</label>
+            <input type="password" class="form-control fr" id="USUARIO_SENHA" name="USUARIO_SENHA" placeholder="Senha">
         </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">Confirmar senha</label>
-            <input type="text" class="form-control fr" id="formGroupExampleInput2" placeholder="Repita a senha">
-        </div>
-            <button type="button" class="btn btn-primary bt">Continuar</button>
+            <button type="submit" class="btn btn-primary bt">Continuar</button>
     </form>
 </section>
 </body>

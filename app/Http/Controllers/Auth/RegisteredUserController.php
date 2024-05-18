@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('cadastro');
     }
 
     /**
@@ -30,10 +30,10 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $user = User::create([
-            'USUARIO_NOME' => $request->name,
-            'USUARIO_EMAIL' => $request->email,
-            'USUARIO_SENHA' => Hash::make($request->password),
-            'USUARIO_CPF'   => '00000000000'
+            'USUARIO_NOME' => $request->USUARIO_NOME,
+            'USUARIO_EMAIL' => $request->USUARIO_EMAIL,
+            'USUARIO_SENHA' => Hash::make($request->USUARIO_SENHA),
+            'USUARIO_CPF'   => $request->USUARIO_CPF
         ]);
 
 
