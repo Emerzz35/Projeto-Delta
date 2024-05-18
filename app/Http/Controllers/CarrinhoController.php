@@ -33,8 +33,9 @@ class CarrinhoController extends Controller
     public function remover(Produto $produto)
     {
         $item = Carrinho::where('USUARIO_ID',Auth()->user()->USUARIO_ID)->where('PRODUTO_ID', $produto->PRODUTO_ID);
+        $total = $item->first()->ITEM_QTD -1;
         $item->update([
-            'ITEM_QTD' => $item->CARRINHO_QTD-1
+            'ITEM_QTD' => $total
         ]);
     }
 }
