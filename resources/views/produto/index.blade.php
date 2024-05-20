@@ -84,30 +84,36 @@
         -->
         @foreach($produtos as $item)
 
-    <a href="{{route('produto.show', $item->PRODUTO_ID)}}">
+    
     <div class="card mb-3">
         <div class="row g-0">
-            <div class="col-md-4 card-col">
+           
+            <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-4 card-col">
                 @if($item->Imagens->isNotEmpty())
                 <img src="{{ $item->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="...">
                 @endif
-            </div>
-            <div class="col-md-5 card-col">
+            </a>
+            
+            <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-5 card-col">
                 <div class="card-body">
                     <h5 class="card-title">{{$item->PRODUTO_NOME}}</h5>
                     <p class="card-text categoria">{{$item->Categoria->CATEGORIA_NOME}}</p>
                 </div>
-            </div>
+            </a>
             <div class="col-md-3 card-col">
+            </a>
+            
                 <div class="card-preco">
                     <p class="card-text">{{$item->PRODUTO_PRECO}}</p>
+                   <a href="{{ route('carrinho.store',$item)}}">  
                     <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
+                   </a> 
                 </div>
             </div>
 
         </div>
     </div>
-</a>
+
     @endforeach
       </div>
 

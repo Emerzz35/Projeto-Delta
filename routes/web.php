@@ -5,7 +5,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\SobreController;
+use App\Models\Endereco;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,7 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/carrinho',[CarrinhoController::class, 'show'])->name('carrinho.show');
     Route::get('/carrinho/{produto}/delete',[CarrinhoController::class,'delete'])->name('carrinho.delete');
     Route::get('/carrinho/{produto}/remover',[CarrinhoController::class,'remover'])->name('carrinho.remover');
+    Route::get('/carrinho/{produto}/adicionar',[CarrinhoController::class,'adicionar'])->name('carrinho.adicionar');
     Route::get('/carrinho/{produto}',[CarrinhoController::class, 'store'])->name('carrinho.store');
+    Route::get('/endereco',[EnderecoController::class,'create'])->name('endereco.create');
+    Route::post('/endereco',[EnderecoController::class,'store'])->name('endereco.store');
     
     
 });
