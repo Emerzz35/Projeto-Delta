@@ -9,14 +9,12 @@ use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\SobreController;
 use App\Models\Endereco;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/home', [ProdutoController::class, 'index'])->name('produto.index');
+
+Route::get('/', [ProdutoController::class, 'index'])->name('produto.index');
 Route::get('/categoria',[CategoriaController::class,'index'])->name('categoria.index');
 Route::get('/produto/{produto}',[ProdutoController::class,'show'])->name('produto.show');
-Route::get('/Sobre',[SobreController::class,'Sobre'])->name('Sobre');
+Route::get('/sobre',[SobreController::class,'Sobre'])->name('sobre');
 
 
 

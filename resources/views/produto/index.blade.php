@@ -17,19 +17,47 @@
 <body>
 
   <header>
-    <a href="#" class="logo"><img src="/assets/logo.png" alt="Logo Delta"> DELTA </a>
+    <a href="{{route('produto.index')}}" class="logo"><img src="/assets/logo.png" alt="Logo Delta"> DELTA </a>
     <ul class="navlist">
-        <li><a href="home.html" id="pg-atual">Home</a></li>
-        <li><a href="#">Comunidade</a></li>
-        <li><a href="#">Sobre </a></li>
+        <li><a href="{{route('produto.index')}}" id="pg-atual">Home</a></li>
+        @if (Auth::check()) 
+        <li><a href="{{route('profile.edit')}}">{{ Auth()->user()->USUARIO_NOME}}</a></li>
+        @else
+        <li><a href="{{route('profile.edit')}}">Faça Login</a></li>
+        @endif
+        <li><a href="{{route('sobre')}}">Sobre </a></li>
     </ul>
     <div class="menu-icons">
-        <box-icon id="search" name='search' size="2rem" color="white"></box-icon>
-        <box-icon id="cart" name='cart' size='2rem' color="white"></box-icon>
+        <a href="{{route('produto.index')}}"><box-icon id="search" name='search' size="2rem" color="white"></box-icon></a>
+        <a href="{{route('carrinho.show')}}"><box-icon id="cart" name='cart' size='2rem' color="white"></box-icon></a>
+
+        <div class="dropdown" id="dropdownnav">
+        <button class="dropdown-toggle" type="button" id="navdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
         <box-icon id="user" name='user-circle' size='2rem' color="white"></box-icon>
+        </button>
+        
+        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navdrop">  
+        @if (Auth::check()) 
+        <a href="{{route('profile.edit')}}" class="dropdown-item">Ver perfil</a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+        </form>
+        @else
+        <a href="{{route('profile.edit')}}" class="dropdown-item">Faça Login</a>
+        <a href="{{ route('register') }}" class="dropdown-item">Registrar</a>
+        @endif  
+        </div>
+        </div>
     </div>
+
+   
+
+
+
     <div class="bx bx-menu" id="menu-icon"></div>
 </header>
+
 
     <section class="fundoCarrosel">
       <!--Carrosel-->
@@ -82,30 +110,30 @@
          - Cardon
          - Identação
         -->
-        @foreach($produtos as $item)
-
-    
+        @foreach($produtos as $produto)
+         
+      
     <div class="card mb-3">
         <div class="row g-0">
            
-            <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-4 card-col">
-                @if($item->Imagens->isNotEmpty())
-                <img src="{{ $item->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="...">
+            <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="col-md-4 card-col">
+                @if($produto->Imagens->isNotEmpty())
+                <img src="{{ $produto->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="...">
                 @endif
             </a>
             
-            <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-5 card-col">
+            <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="col-md-5 card-col">
                 <div class="card-body">
-                    <h5 class="card-title">{{$item->PRODUTO_NOME}}</h5>
-                    <p class="card-text categoria">{{$item->Categoria->CATEGORIA_NOME}}</p>
+                    <h5 class="card-title">{{$produto->PRODUTO_NOME}}</h5>
+                    <p class="card-text categoria">{{$produto->Categoria->CATEGORIA_NOME}}</p>
                 </div>
             </a>
             <div class="col-md-3 card-col">
             </a>
             
                 <div class="card-preco">
-                    <p class="card-text">{{$item->PRODUTO_PRECO}}</p>
-                   <a href="{{ route('carrinho.store',$item)}}">  
+                    <p class="card-text">{{$produto->PRODUTO_PRECO}}</p>
+                   <a href="{{ route('carrinho.store',$produto)}}">  
                     <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
                    </a> 
                 </div>
@@ -113,7 +141,7 @@
 
         </div>
     </div>
-
+  
     @endforeach
       </div>
 
