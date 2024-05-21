@@ -1,0 +1,24 @@
+Backend:
+[]Login -
+[]Pedidos -
+[x]Endereco editar e deletar
+[x]Perfil 
+[x]Carrinho
+
+FrontEnd:
+[]Endereco
+[]Perfil
+[]Pedidos
+[]Carrinho
+[]Detalhes na home
+[]Detalhes no Show
+
+Detalhes:
+[]Produto Show
+[]Footer
+[]Header
+[x]Hovers na home 
+[]Descontos 3
+[]Filtros home 5
+[]Icone e titulo nas paginas
+[]Verificador de estoque no carrinho 4
