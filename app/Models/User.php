@@ -25,4 +25,7 @@ class User extends Authenticatable
         'USUARIO_SENHA',
     ];
 
+    public function Endereco(){
+        return $this->hasMany(Endereco::class,'USUARIO_ID', 'USUARIO_ID');
+    }
 }

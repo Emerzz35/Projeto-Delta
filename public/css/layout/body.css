@@ -1,4 +1,35 @@
 body{
     background-color: #3A3949;
     color: white;
+    overflow-x: hidden;
 }
+.scroll::-webkit-scrollbar {
+    border-radius: 50px;
+    height: 8px;
+    width: 8px;
+  }
+  .scroll::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #ffffff00;
+  }
+
+  
+  .scroll::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+    background-color: #a9a7ba91;
+  }
+  body::-webkit-scrollbar {
+    border-radius: 50px;
+    height: 8px;
+    width: 8px;
+  }
+  body::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #ffffff00;
+  }
+
+  
+  body::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+    background-color: #a9a7ba91;
+  }

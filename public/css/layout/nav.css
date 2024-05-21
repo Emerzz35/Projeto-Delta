@@ -48,13 +48,12 @@ a.logo:hover {
     border-bottom: 2px solid white;
 }
 
-#menu-icon {
-    color: white;
-    font-size: 35px;
-    z-index: 10001;
-    cursor: pointer;
-    display: none;
+.menu-icons{
+    align-items: center;
+    position: relative;
+    display: flex;
 }
+
 
 #pg-atual {
     color: #078799;
@@ -63,3 +62,29 @@ a.logo:hover {
   li{
     list-style: none;
   }
+
+  .dropdown-toggle{ 
+    width: 32px;
+    height: 32px;
+    border: 0;
+}
+.dropdown-menu{
+    height: fit-content;
+    width: fit-content;
+    
+}
+.dropdown-item{
+    width: fit-content;
+}
+#dropdownnav{
+    width: 32px;
+    height: 32px;
+}
+.dropdown-menu {
+    left: auto !important;
+    right: 0; /* Ajuste este valor conforme necessário */
+}
+
+.dropdown-toggle::after {
+    display: none; /* Remove o caret padrão do Bootstrap */
+}
