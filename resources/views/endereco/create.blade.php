@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/main-cadastro.css">
 </head>
 <body>
+<section class="formu">
 <form class="fm" method="POST" action="{{ route('endereco.store') }}">
         @csrf
 
@@ -42,5 +43,6 @@
         </div>
             <button type="submit" class="btn btn-primary bt">Adicionar Endereço</button>
     </form>
+</section>
 </body>
 </html>
