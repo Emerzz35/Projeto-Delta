@@ -62,27 +62,27 @@
     <section class="fundoCarrosel">
       <!--Carrosel-->
         <section class="center slider">
-        @foreach($produtos as $item)
-          @if(($item->PRODUTO_ID == 155) or ($item->PRODUTO_ID == 1) or ($item->PRODUTO_ID == 154))
+        @for ($i = 0; $i < 3; $i++)
+          
           <div class="slide">
-          <a href="{{route('produto.show', $item->PRODUTO_ID)}}">
-              <img src="{{ $item->Imagens->first()->IMAGEM_URL }}" alt="{{ $item->PRODUTO_NOME }}">
+          <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}">
+              <img src="{{ $produtos[$i]->Imagens->first()->IMAGEM_URL }}" alt="{{ $produtos[$i]->PRODUTO_NOME }}">
           </a>
             </div>
-          @endif 
-          @endforeach
+         
+            @endfor
         </section>
 
         <!-- Hover Carrosel (A fazer) Switch Case? -->
 
         <div class="carrossel-hover">
           <div id="car1">
-            <h2>Minecraft</h2>
-            <p class="subt">Sandbox</p>
-            <p>Em Minecraft, você constrói o que quiser em um mundo infinito. Sobreviva, explore e crie com amigos ou sozinho. Uma experiência de jogo única e infinita.</p>
+            <h2 id="Carrossel-Hover-Titulo">{{ $produtos[0]->PRODUTO_NOME }}</h2>
+            <p class="subt" id="Carrossel-Hover-Categoria">{{ $produtos[0]->Categoria->CATEGORIA_NOME }}</p>
+            <p id="Carrossel-Hover-Desc">{{ $produtos[0]->PRODUTO_DESC}}</p>
           </div>
           <div id="car2">
-            <p>R$129,99</p>
+            <p id="Carrossel-Hover-Preco">R$ {{ number_format($produtos[0]->PRODUTO_PRECO, 2, ',', '.') }}</p>
             <box-icon name='cart-add' color="white" size="3.5rem" id="carrinho" animation='tada-hover'></box-icon>
           </div>
         </div>
@@ -166,8 +166,41 @@
       centerMode: true,
       slidesToShow: 1,
       slidesToScroll: 3,
+      autoplay: true
     });
   </script>
+  <script>
+  $('.center').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    console.log(nextSlide);
+    const Titulo = document.getElementById('Carrossel-Hover-Titulo');
+    const Categoria = document.getElementById('Carrossel-Hover-Categoria');
+    const Desc      = document.getElementById('Carrossel-Hover-Desc');
+    const Preco     = document.getElementById('Carrossel-Hover-Preco');
+
+    if (nextSlide == 0) {
+      Titulo.innerHTML =  '{{ $produtos[0]->PRODUTO_NOME }}';
+      Categoria.innerHTML =  '{{ $produtos[0]->Categoria->CATEGORIA_NOME }}';
+      Desc.innerHTML =  '{{ $produtos[0]->PRODUTO_DESC}}';
+      Preco.innerHTML =  "R$ {{ number_format($produtos[0]->PRODUTO_PRECO, 2, ',', '.') }}";
+  } else if (nextSlide == 1){
+    Titulo.innerHTML =  '{{ $produtos[1]->PRODUTO_NOME }}';
+      Categoria.innerHTML =  '{{ $produtos[1]->Categoria->CATEGORIA_NOME }}';
+      Desc.innerHTML =  '{{ $produtos[1]->PRODUTO_DESC}}';
+      Preco.innerHTML =  "R$ {{ number_format($produtos[1]->PRODUTO_PRECO, 2, ',', '.') }}";
+  }else if (nextSlide == 2){
+    Titulo.innerHTML =  '{{ $produtos[2]->PRODUTO_NOME }}';
+      Categoria.innerHTML =  '{{ $produtos[2]->Categoria->CATEGORIA_NOME }}';
+      Desc.innerHTML =  '{{ $produtos[2]->PRODUTO_DESC}}';
+      Preco.innerHTML =  "R$ {{ number_format($produtos[2]->PRODUTO_PRECO, 2, ',', '.') }}";
+  }
+  
+    
+
+
+    
+  });
+</script>
+
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script>
