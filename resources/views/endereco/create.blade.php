@@ -17,6 +17,10 @@
             <input type="text" class="form-control fr" id="ENDERECO_NOME" name="ENDERECO_NOME" placeholder="Apelido do Endereço">
         </div>
         <div class="form-group">
+            <label for="ENDERECO_CEP">CEP</label>
+            <input type="text" class="form-control fr" id="ENDERECO_CEP" name="ENDERECO_CEP" placeholder="CEP" maxlength="8">
+        </div>
+        <div class="form-group">
             <label for="ENDERECO_LOGRADOURO">Logradouro</label>
             <input type="text" class="form-control fr" id="ENDERECO_LOGRADOURO" name="ENDERECO_LOGRADOURO" placeholder="Logradouro">
         </div>
@@ -27,10 +31,6 @@
         <div class="form-group">
             <label for="ENDERECO_COMPLEMENTO">Complemento</label>
             <input type="text" class="form-control fr" id="ENDERECO_COMPLEMENTO" name="ENDERECO_COMPLEMENTO" placeholder="Complemento">
-        </div>
-        <div class="form-group">
-            <label for="ENDERECO_CEP">CEP</label>
-            <input type="text" class="form-control fr" id="ENDERECO_CEP" name="ENDERECO_CEP" placeholder="CEP">
         </div>
         <div class="form-group">
             <label for="ENDERECO_CIDADE">Cidade</label>

@@ -35,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/carrinho/{produto}',[CarrinhoController::class, 'store'])->name('carrinho.store');
     Route::get('/endereco',[EnderecoController::class,'create'])->name('endereco.create');
     Route::post('/endereco',[EnderecoController::class,'store'])->name('endereco.store');
+    Route::put('/endereco/{endereco}',[EnderecoController::class,'update'])->name('endereco.update');
+    Route::get('/endereco/{endereco}/delete',[EnderecoController::class,'delete'])->name('endereco.delete');
     
     
 });
