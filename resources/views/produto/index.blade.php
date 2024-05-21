@@ -88,14 +88,14 @@
 </div>
 
 <main>
-    <div class="cardall">
-        <div class="card-group" id="scrollableDiv">
-            @foreach($produtos as $index => $produto)
+<div class="cardall scroll">
+    <div class="card-group scroll" id="scrollableDiv">
+        @foreach($produtos as $index => $produto)
             <div class="card mb-3 card-item" data-index="{{ $index }}">
                 <div class="row g-0">
                     <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="col-md-4 card-col">
                         @if($produto->Imagens->isNotEmpty())
-                        <img src="{{ $produto->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ $produto->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="{{ $produto->PRODUTO_NOME }}">
                         @endif
                     </a>
                     <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="col-md-5 card-col">
@@ -106,24 +106,25 @@
                     </a>
                     <div class="col-md-3 card-col">
                         <div class="card-preco">
-                            <p class="card-text">{{$produto->PRODUTO_PRECO}}</p>
-                            <a href="{{ route('carrinho.store', $produto) }}">
+                            <p class="card-text">R$ {{ number_format($produto->PRODUTO_PRECO, 2, ',', '.') }}</p>
+                            <a href="{{ route('carrinho.store',$produto)}}">
                                 <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
-        </div>
-
-        <div class="card-info">
-            <h5 class="card-title" id="info-title">Minecraft</h5>
-            <p class="card-text categoria" id="info-category">Sandbox</p>
-            <img src="assets/Assets temporarios/minecraft3.webp" alt="" class="img-fluid rounded-start" id="info-image">
-            <p class="card-text card-desc" id="info-description">Em Minecraft, você constrói o que quiser em um mundo infinito. Sobreviva, explore e crie com amigos ou sozinho. Uma experiência de jogo única e infinita.</p>
-        </div>
+        @endforeach
     </div>
+
+    <div class="card-info">
+        <h5 id="info-title" class="card-title">Título do Produto</h5>
+        <p id="info-category" class="card-text categoria">Categoria do Produto</p>
+        <img id="info-image" src="" alt="Imagem do Produto" class="img-fluid rounded-start">
+        <p id="info-description" class="card-text card-desc scroll">Descrição do Produto</p>
+    </div>
+</div>
+
     <div class="fadeout"></div>
 </main>
 
@@ -177,10 +178,15 @@
             document.getElementById('info-category').innerText = produtos[index].categoria.CATEGORIA_NOME;
             document.getElementById('info-image').src = produtos[index].imagens.length ? produtos[index].imagens[0].IMAGEM_URL : '';
             
+            document.querySelectorAll('.card-item').forEach(card => {
+                card.classList.remove('cardon');
+            });
+
+            // Adicione a classe Cardon ao card atual
+            event.currentTarget.classList.add('cardon');
         });
     });
 </script>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
