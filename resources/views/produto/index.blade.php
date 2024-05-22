@@ -79,7 +79,7 @@
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorias
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu" id="categoriasmenu" aria-labelledby="dropdownMenuButton">
             @foreach($categorias as $categoria)
             <a class="dropdown-item" href="#">{{$categoria->CATEGORIA_NOME}}</a>
             @endforeach

@@ -12,7 +12,26 @@
     height: 120px;
     overflow-y: scroll;
  
+
+
 }
+#dropdownMenuButton{
+  background-color: transparent;
+  border-color: transparent;
+  text-align: center;
+  font-size: 1.7rem;
+  width: 228px;
+  height: 35px;
+  padding: 0;
+}
+#categoriasmenu{
+  background-color: #484646;
+  height: 120px;
+  overflow-y: scroll;
+
+}
+
+
 .dropdown-menu::-webkit-scrollbar {
     height: 8px;
     width: 8px;
