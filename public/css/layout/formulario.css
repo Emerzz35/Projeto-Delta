@@ -31,5 +31,7 @@
     overflow: auto;
 }
 
-
+footer {
+    position: relative;
+}
 
