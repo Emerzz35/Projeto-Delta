@@ -161,6 +161,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+    <footer>
+        <img src="assets/logo.png" alt="logo delta" id='delta-footer'>
+        <h2 id='h2-footer'>Delta | </h2>
+        <p id='p-footer'> Precisa de ajuda ou suporte técnico? Acesse nossa seção de suporte para obter assistência!</p>
+        <div id='div-footer'>
+            <a href="">Home</a> | 
+            <a href="">Suporte</a> | 
+            <a href="">Termos legais</a> | 
+            <a href="">Política de privacidade</a>
+        </div>
+        
+    </footer>
 </body>
 
 </html>
