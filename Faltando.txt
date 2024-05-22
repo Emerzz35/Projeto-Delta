@@ -8,18 +8,18 @@ Backend:
 FrontEnd:
 []Endereco
 []Perfil
-[]Pedidos
+[]Pedidos -
 []Carrinho
 []Detalhes na home
 []Detalhes no Show
 
 Detalhes:
 []Produto Show
-[]Footer
+[x]Footer
 []Header
 [x]Hovers na home 
 []Descontos 3
 []Filtros home 5
 []Icone e titulo nas paginas
 []Verificador de estoque no carrinho 4
-[]Link no cadastrar Usuario
+[]Link no cadastrar Usuario 5
