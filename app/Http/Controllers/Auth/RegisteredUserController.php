@@ -39,6 +39,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('produto.index'));
+        return redirect(route('endereco.create'));
     }
 }

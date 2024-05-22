@@ -22,4 +22,4 @@ Detalhes:
 []Filtros home 5
 []Icone e titulo nas paginas
 []Verificador de estoque no carrinho 4
-[]Link no cadastrar Usuario 5
+[x]Link no cadastrar Usuario 
