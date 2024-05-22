@@ -14,16 +14,28 @@ class CarrinhoController extends Controller
     function show(){
         $itens = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
             ->where('ITEM_QTD', '>', 0)
-            ->get();
+            ->with('Produto')
+            ->get()
+            ->map(function($item) {
+                $produto = $item->Produto;
+                $produto->preco_com_desconto = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+                if ($produto->PRODUTO_DESCONTO > 0) {
+                    $produto->porcentagem_desconto = ($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO) * 100;
+                } else {
+                    $produto->porcentagem_desconto = 0;
+                }
+                $item->produto = $produto;
+                return $item;
+            });
 
         $enderecos = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
             ->get();
 
-        // Calcula o preço total
+        // Calcula o preço total com desconto
         $precoTotal = $itens->sum(function($item) {
-            return $item->ITEM_QTD * $item->Produto->PRODUTO_PRECO;
+            return $item->ITEM_QTD * $item->Produto->preco_com_desconto;
         });
-
+        
         return view('carrinho')
             ->with('itens', $itens)
             ->with('enderecos', $enderecos)

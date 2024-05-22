@@ -18,7 +18,7 @@ Detalhes:
 [x]Footer
 []Header
 [x]Hovers na home 
-[]Descontos 3
+[x]Descontos 
 []Filtros home 5
 []Icone e titulo nas paginas
 []Verificador de estoque no carrinho 4

@@ -83,34 +83,64 @@
 <section class="Outros">
      
       <div class="cardall">
-         <div class="card-group " id="scrollableDiv">
+         <div class="card-group scroll" id="scrollableDiv">
             
 
-            @foreach($produtos as $item)
-            @if(($item->CATEGORIA_ID == $produto->CATEGORIA_ID) and ($item->PRODUTO_ID <> $produto->PRODUTO_ID))
-            <a href="{{route('produto.show', $item->PRODUTO_ID)}}">
-               <div class="card mb-3">
-                  <div class="row g-0">
-                     <div class="col-md-4 card-col">
+            @foreach($produtos as $index => $item)
+            @if(($item->CATEGORIA_ID == $produto->CATEGORIA_ID))
+            @if ($item->porcentagem_desconto>=1) 
+            <div class="card mb-3 card-item" data-index="{{ $index }}">
+                <div class="row g-0">
+                    <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-4 card-col">
                         @if($item->Imagens->isNotEmpty())
-                        <img src="{{ $item->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ $item->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="{{ $item->PRODUTO_NOME }}">
                         @endif
-                     </div>
-                     <div class="col-md-5 card-col">
+                    </a>
+                    <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-5 card-col col-5-desconto">
                         <div class="card-body">
-                           <h5 class="card-title">{{$item->PRODUTO_NOME}}</h5>
-                           <p class="card-text categoria">{{$item->Categoria->CATEGORIA_NOME}}</p>
+                            <h5 class="card-title">{{$item->PRODUTO_NOME}}</h5>
+                            <p class="card-text categoria">{{$item->Categoria->CATEGORIA_NOME}}</p>
                         </div>
-                     </div>
-                     <div class="col-md-3 card-col">
+                    </a>
+                    <div class="col-md-3 card-col col-3-desconto">
                         <div class="card-preco">
-                           <p class="card-text">{{$item->PRODUTO_PRECO}}</p>
-                           <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
+                            <p class="card-text">-{{ number_format($item->porcentagem_desconto, 0, ',', '.') }}%</p>
+                            <div class="preco-desconto">
+                            <p class="card-text preco-sem-desconto">R$ {{ number_format($item->PRODUTO_PRECO, 2, ',', '.') }}</p>
+                            <p class="card-text preco-com-desconto">R$ {{ number_format($item->preco_com_desconto, 2, ',', '.') }}</p>
+                            </div>
+                            <a href="{{ route('carrinho.store',$item)}}">
+                                <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
+                            </a>
                         </div>
-                     </div>
-                     </div>
-               </div>
-</a>
+                    </div>
+                </div>
+            </div>
+        @else 
+        <div class="card mb-3 card-item" data-index="{{ $index }}">
+                <div class="row g-0">
+                    <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-4 card-col">
+                        @if($item->Imagens->isNotEmpty())
+                            <img src="{{ $item->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="{{ $item->PRODUTO_NOME }}">
+                        @endif
+                    </a>
+                    <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-5 card-col">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$item->PRODUTO_NOME}}</h5>
+                            <p class="card-text categoria">{{$item->Categoria->CATEGORIA_NOME}}</p>
+                        </div>
+                    </a>
+                    <div class="col-md-3 card-col">
+                        <div class="card-preco">
+                            <p class="card-text">R$ {{ number_format($item->PRODUTO_PRECO, 2, ',', '.') }}</p>
+                            <a href="{{ route('carrinho.store',$item)}}">
+                                <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
                      @endif
                      @endforeach
 

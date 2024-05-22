@@ -91,7 +91,36 @@
 <div class="cardall scroll">
     <div class="card-group scroll" id="scrollableDiv">
         @foreach($produtos as $index => $produto)
+        @if ($produto->porcentagem_desconto>=1) 
             <div class="card mb-3 card-item" data-index="{{ $index }}">
+                <div class="row g-0">
+                    <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="col-md-4 card-col">
+                        @if($produto->Imagens->isNotEmpty())
+                            <img src="{{ $produto->Imagens->first()->IMAGEM_URL }}" class="img-fluid rounded-start" alt="{{ $produto->PRODUTO_NOME }}">
+                        @endif
+                    </a>
+                    <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="col-md-5 card-col col-5-desconto">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$produto->PRODUTO_NOME}}</h5>
+                            <p class="card-text categoria">{{$produto->Categoria->CATEGORIA_NOME}}</p>
+                        </div>
+                    </a>
+                    <div class="col-md-3 card-col col-3-desconto">
+                        <div class="card-preco">
+                            <p class="card-text">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>
+                            <div class="preco-desconto">
+                            <p class="card-text preco-sem-desconto">R$ {{ number_format($produto->PRODUTO_PRECO, 2, ',', '.') }}</p>
+                            <p class="card-text preco-com-desconto">R$ {{ number_format($produto->preco_com_desconto, 2, ',', '.') }}</p>
+                            </div>
+                            <a href="{{ route('carrinho.store',$produto)}}">
+                                <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else 
+        <div class="card mb-3 card-item" data-index="{{ $index }}">
                 <div class="row g-0">
                     <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="col-md-4 card-col">
                         @if($produto->Imagens->isNotEmpty())
@@ -114,6 +143,7 @@
                     </div>
                 </div>
             </div>
+        @endif
         @endforeach
     </div>
 

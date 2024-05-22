@@ -100,3 +100,17 @@
   .cardall{
     display: flex;
   }
+
+.preco-com-desconto{
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem !important;
+}
+.preco-sem-desconto{
+    margin-bottom: 0;
+  }
+.col-3-desconto{
+width: 30%; 
+}
+.col-5-desconto{
+width: 35.666667%;
+}
