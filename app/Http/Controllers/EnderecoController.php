@@ -24,7 +24,7 @@ class EnderecoController extends Controller
             'ENDERECO_ESTADO'=>$request->ENDERECO_ESTADO,
             'ENDERECO_APAGADO'=>0
         ]);
-        return redirect(route('produto.index'));
+        return redirect(route('profile.edit'));
     }
     
     public function update(Request $request, Endereco $endereco)

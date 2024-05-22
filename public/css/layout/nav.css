@@ -63,28 +63,28 @@ a.logo:hover {
     list-style: none;
   }
 
-  .dropdown-toggle{ 
+.nav.dropdown-toggle{ 
     width: 32px;
     height: 32px;
     border: 0;
 }
-.dropdown-menu{
+.nav.dropdown-menu{
     height: fit-content;
     width: fit-content;
     
 }
-.dropdown-item{
+.nav.dropdown-item{
     width: fit-content;
 }
-#dropdownnav{
+.nav#dropdownnav{
     width: 32px;
     height: 32px;
 }
-.dropdown-menu {
+.nav.dropdown-menu {
     left: auto !important;
     right: 0; /* Ajuste este valor conforme necessário */
 }
 
-.dropdown-toggle::after {
+.nav.dropdown-toggle::after {
     display: none; /* Remove o caret padrão do Bootstrap */
 }
