@@ -1,0 +1,11 @@
+.modal{
+    width: 30%;
+    height: 35%;
+    transform: translate(118%, 50%);
+}
+
+.modal-dialog{
+    background-color: #2E3136;
+ 
+}
+
