@@ -141,7 +141,10 @@
     </footer>
 
 <!-- Modal Login -->
+
     <div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
+        <div>
+            <h2>Login</h2>
     <div class="modal-dialog" role="document">
             <div class="modal-body">
                 <form class="fm" method="POST" action="{{ route('login') }}">
@@ -156,6 +159,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary bt">Continuar</button>
                 </form>
+            </div>
             </div>
         </div>
     </div>
