@@ -19,7 +19,7 @@ Detalhes:
 []Header
 [x]Hovers na home 
 [x]Descontos 
-[]Filtros home 5
+[]Filtros home 4
 []Icone e titulo nas paginas
-[]Verificador de estoque no carrinho 4
+[]Verificador de estoque no carrinho 5
 [x]Link no cadastrar Usuario 

@@ -11,5 +11,6 @@
   
 }
 .filtro-ativo{
-    background-color: #5F5B8E;
+    background-color: #5F5B8E !important;
+    border-radius: 0
 }

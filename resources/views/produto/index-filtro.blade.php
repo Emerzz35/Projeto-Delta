@@ -48,35 +48,13 @@
     <div class="bx bx-menu" id="menu-icon"></div>
 </header>
 
-<section class="fundoCarrosel">
-    <section class="center slider">
-        @for ($i = 0; $i < 3; $i++)
-        <div class="slide">
-            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}">
-                <img src="{{ $produtos[$i]->Imagens->first()->IMAGEM_URL }}" alt="{{ $produtos[$i]->PRODUTO_NOME }}">
-            </a>
-        </div>
-        @endfor
-    </section>
 
-    <div class="carrossel-hover">
-        <div id="car1">
-            <h2 id="Carrossel-Hover-Titulo">{{ $produtos[0]->PRODUTO_NOME }}</h2>
-            <p class="subt" id="Carrossel-Hover-Categoria">{{ $produtos[0]->Categoria->CATEGORIA_NOME }}</p>
-            <p id="Carrossel-Hover-Desc">{{ $produtos[0]->PRODUTO_DESC}}</p>
-        </div>
-        <div id="car2">
-            <p id="Carrossel-Hover-Preco">R$ {{ number_format($produtos[0]->PRODUTO_PRECO, 2, ',', '.') }}</p>
-            <box-icon name='cart-add' color="white" size="3.5rem" id="carrinho" animation='tada-hover'></box-icon>
-        </div>
-    </div>
-</section>
 
 <div class="filtros">
-    <a href="{{route('produto.index')}}"class="filtro filtro-ativo">Novidades</a>
+    <a href="{{route('produto.index')}}"class="filtro">Novidades</a>
     <a class="filtro" href="{{ route('produto.filtro-ofertas') }}">Ofertas</a>
     <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle filtro-ativo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Categorias
     </button>
     <div class="dropdown-menu" id="categoriasmenu" aria-labelledby="dropdownMenuButton">
@@ -199,41 +177,7 @@
 <!--Script do Slick e do Bootstrap-->
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script src="/slick/slick.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-    $(".center").slick({
-        variableWidth: true,
-        dots: false,
-        infinite: true,
-        centerMode: true,
-        slidesToShow: 1,
-        slidesToScroll: 3,
-        autoplay: true
-    });
 
-    $('.center').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-        const Titulo = document.getElementById('Carrossel-Hover-Titulo');
-        const Categoria = document.getElementById('Carrossel-Hover-Categoria');
-        const Desc = document.getElementById('Carrossel-Hover-Desc');
-        const Preco = document.getElementById('Carrossel-Hover-Preco');
-
-        if (nextSlide == 0) {
-            Titulo.innerHTML = '{{ $produtos[0]->PRODUTO_NOME }}';
-            Categoria.innerHTML = '{{ $produtos[0]->Categoria->CATEGORIA_NOME }}';
-            Desc.innerHTML = '{{ $produtos[0]->PRODUTO_DESC }}';
-            Preco.innerHTML = "R$ {{ number_format($produtos[0]->PRODUTO_PRECO, 2, ',', '.') }}";
-        } else if (nextSlide == 1) {
-            Titulo.innerHTML = '{{ $produtos[1]->PRODUTO_NOME }}';
-            Categoria.innerHTML = '{{ $produtos[1]->Categoria->CATEGORIA_NOME }}';
-            Desc.innerHTML = '{{ $produtos[1]->PRODUTO_DESC }}';
-            Preco.innerHTML = "R$ {{ number_format($produtos[1]->PRODUTO_PRECO, 2, ',', '.') }}";
-        } else if (nextSlide == 2) {
-            Titulo.innerHTML = '{{ $produtos[2]->PRODUTO_NOME }}';
-            Categoria.innerHTML = '{{ $produtos[2]->Categoria->CATEGORIA_NOME }}';
-            Desc.innerHTML = '{{ $produtos[2]->PRODUTO_DESC }}';
-            Preco.innerHTML = "R$ {{ number_format($produtos[2]->PRODUTO_PRECO, 2, ',', '.') }}";
-        }
-    });
-</script>
 <script type="text/javascript">
     // Script para atualizar card-info no hover do card
     document.querySelectorAll('.card-item').forEach(item => {
