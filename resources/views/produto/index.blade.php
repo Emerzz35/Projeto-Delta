@@ -127,6 +127,18 @@
 
     <div class="fadeout"></div>
 </main>
+<footer>
+        <img src="assets/logo.png" alt="logo delta" id='delta-footer'>
+        <h2 id='h2-footer'>Delta | </h2>
+        <p id='p-footer'> Precisa de ajuda ou suporte técnico? Acesse nossa seção de suporte para obter assistência!</p>
+        <div id='div-footer'>
+            <a href="">Home</a> | 
+            <a href="">Suporte</a> | 
+            <a href="">Termos legais</a> | 
+            <a href="">Política de privacidade</a>
+        </div>
+        
+    </footer>
 
 <!--Script do Slick e do Bootstrap-->
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
