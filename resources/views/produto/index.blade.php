@@ -143,31 +143,14 @@
 <!-- Modal Login -->
     <div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateProfileModalLabel">Atualizar Perfil</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
             <div class="modal-body">
                 <form class="fm" method="POST" action="{{ route('login') }}">
                     @csrf
                     @method('patch')
-
-                    <div class="form-group">
-                        <label for="USUARIO_NOME">Nome</label>
-                        <input type="text" class="form-control fr" id="USUARIO_NOME" name="USUARIO_NOME" placeholder="Nome completo" >
-                    </div>
                     <div class="form-group">
                         <label for="USUARIO_EMAIL">E-mail</label>
                         <input type="email" class="form-control fr" id="USUARIO_EMAIL" name="USUARIO_EMAIL" placeholder="E-mail" >
-                                        </div>
-                    <div class="form-group">
-                        <label for="USUARIO_CPF">CPF</label>
-                        <input type="text" class="form-control fr" id="USUARIO_CPF" name="USUARIO_CPF" placeholder="Seu CPF" maxlength="11" >           
-                             </div>
-                    <div class="form-group">
+                    </div>
                         <label for="USUARIO_SENHA">Senha</label>
                         <input type="password" class="form-control fr" id="USUARIO_SENHA" name="USUARIO_SENHA" placeholder="Senha">
                     </div>
