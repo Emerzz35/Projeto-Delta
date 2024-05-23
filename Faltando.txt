@@ -6,10 +6,10 @@ Backend:
 [x]Carrinho
 
 FrontEnd:
-[]Endereco
 []Perfil
 []Pedidos -
 []Carrinho
+[]Detalhes Endereco
 []Detalhes na home
 []Detalhes no Show
 
@@ -20,7 +20,7 @@ Detalhes:
 [x]Hovers na home 
 [x]Descontos 
 [x]Filtros home 
-[]Pesquisa
+[x]Pesquisa
 []Icone e titulo nas paginas
-[]Verificador de estoque no carrinho 5
+[]Verificador de estoque no carrinho
 [x]Link no cadastrar Usuario 

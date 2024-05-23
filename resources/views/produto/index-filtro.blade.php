@@ -25,7 +25,15 @@
         <li><a href="{{route('sobre')}}">Sobre </a></li>
     </ul>
     <div class="menu-icons">
-        <a href="{{route('produto.index')}}"><box-icon id="search" name='search' size="2rem" color="white"></box-icon></a>
+    <form action="{{ route('produto.filtro-pesquisa') }}" method="post" class="input-group">
+    @csrf
+    <div class="form-outline" data-mdb-input-init>
+        <input type="search" id="form1" name="query" class="form-control" placeholder="Pesquise" />
+    </div>
+    <button type="submit" class="btn" data-mdb-ripple-init>
+        <box-icon id="search" name='search' size="2rem" color="white" class="fas fa-search"></box-icon>
+    </button>
+</form>
         <a href="{{route('carrinho.show')}}"><box-icon id="cart" name='cart' size='2rem' color="white"></box-icon></a>
         <div class="dropdown" id="dropdownnav">
             <button class="dropdown-toggle" type="button" id="navdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
@@ -51,7 +59,7 @@
 
 
 <div class="filtros">
-    <a href="{{route('produto.index')}}"class="filtro">Novidades</a>
+    <a href="{{route('produto.index')}}"class="filtro" id="Novidades">Novidades</a>
     <a class="filtro" href="{{ route('produto.filtro-ofertas') }}">Ofertas</a>
     <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle filtro-ativo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -199,7 +207,17 @@
         });
     });
 </script>
-
+<script type="text/javascript">
+    window.onload = function() {
+    const Novidades = document.getElementById('Novidades');    
+    const Ofertas = document.getElementById('Ofertas');
+    let link = window.location.href;
+    if(link == 'http://localhost:8000/produtos/pesquisa'){
+        Novidades.classList.add('filtro-ativo');
+        dropdownMenuButton.classList.remove('filtro-ativo');
+    }
+};
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

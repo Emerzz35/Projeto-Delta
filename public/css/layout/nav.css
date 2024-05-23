@@ -82,9 +82,9 @@ a.logo:hover {
 }
 .dropdown-menu {
     left: auto !important;
-    right: 0; /* Ajuste este valor conforme necessário */
+    right: 0;
 }
 
 .dropdown-toggle::after {
-    display: none; /* Remove o caret padrão do Bootstrap */
+    display: none; 
 }

@@ -36,6 +36,37 @@ class ProdutoController extends Controller
             ->with('produtos', $produtos)
             ->with('categorias', $categorias);
     }
+
+    public function FiltroPesquisa(Request $request)
+{
+    $query = $request->input('query');
+    $produtos = Produto::with('estoque')
+        ->where('PRODUTO_ATIVO', 1)
+        ->whereHas('estoque', function($query) {
+            $query->where('PRODUTO_QTD', '>', 0);
+        })
+        ->where('PRODUTO_NOME', 'like', '%' . $query . '%')
+        ->get()
+        ->map(function($produto) {
+            $produto->preco_com_desconto = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+            if($produto->PRODUTO_DESCONTO > 0){   
+                $produto->porcentagem_desconto = ($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO) * 100;
+            } else {
+                $produto->porcentagem_desconto = 0;
+            }
+            return $produto;
+        });
+
+    $categorias = Categoria::all();
+
+    return view('produto.index-filtro')
+        ->with('produtos', $produtos)
+        ->with('categorias', $categorias);
+}
+
+
+
+
     public function FiltroOfertas()
     {
         $produtos = $this->getProdutos()

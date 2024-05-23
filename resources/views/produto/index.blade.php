@@ -25,7 +25,15 @@
         <li><a href="{{route('sobre')}}">Sobre </a></li>
     </ul>
     <div class="menu-icons">
-        <a href="{{route('produto.index')}}"><box-icon id="search" name='search' size="2rem" color="white"></box-icon></a>
+    <form action="{{ route('produto.filtro-pesquisa') }}" method="post" class="input-group">
+    @csrf
+    <div class="form-outline" data-mdb-input-init>
+        <input type="search" id="form1" name="query" class="form-control" placeholder="Pesquise" />
+    </div>
+    <button type="submit" class="btn" data-mdb-ripple-init>
+        <box-icon id="search" name='search' size="2rem" color="white" class="fas fa-search"></box-icon>
+    </button>
+</form>
         <a href="{{route('carrinho.show')}}"><box-icon id="cart" name='cart' size='2rem' color="white"></box-icon></a>
         <div class="dropdown" id="dropdownnav">
             <button class="dropdown-toggle" type="button" id="navdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
@@ -73,8 +81,8 @@
 </section>
 
 <div class="filtros">
-    <a href="{{route('produto.index')}}"class="filtro filtro-ativo">Novidades</a>
-    <a class="filtro" href="{{ route('produto.filtro-ofertas') }}">Ofertas</a>
+    <a href="{{route('produto.index')}}"class="filtro filtro-ativo" id="Novidades">Novidades</a>
+    <a class="filtro" href="{{ route('produto.filtro-ofertas') }}" id="Ofertas">Ofertas</a>
     <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Categorias
@@ -199,6 +207,7 @@
 <!--Script do Slick e do Bootstrap-->
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script src="/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<!-- Script do Carrossel -->
 <script type="text/javascript">
     $(".center").slick({
         variableWidth: true,
@@ -234,6 +243,7 @@
         }
     });
 </script>
+<!-- Script dos Cards -->
 <script type="text/javascript">
     // Script para atualizar card-info no hover do card
     document.querySelectorAll('.card-item').forEach(item => {
@@ -254,6 +264,18 @@
             event.currentTarget.classList.add('cardon');
         });
     });
+</script>
+<!-- Script filtros -->
+<script type="text/javascript">
+    window.onload = function() {
+    const Novidades = document.getElementById('Novidades');    
+    const Ofertas = document.getElementById('Ofertas');
+    let link = window.location.href;
+    if(link == 'http://localhost:8000/ofertas'){
+       Ofertas.classList.add('filtro-ativo');
+       Novidades.classList.remove('filtro-ativo');
+    }
+};
 </script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

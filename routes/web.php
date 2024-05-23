@@ -14,6 +14,7 @@ use App\Models\Endereco;
 Route::get('/', [ProdutoController::class, 'index'])->name('produto.index');
 Route::get('/produto/{produto}',[ProdutoController::class,'show'])->name('produto.show');
 Route::get('/produtos/{categoria}', [ProdutoController::class, 'FiltroCategoria'])->name('produto.filtro.categoria');
+Route::post('/produtos/pesquisa', [ProdutoController::class, 'FiltroPesquisa'])->name('produto.filtro-pesquisa');
 Route::get('/ofertas', [ProdutoController::class, 'FiltroOfertas'])->name('produto.filtro-ofertas');
 Route::get('/sobre',[SobreController::class,'Sobre'])->name('sobre');
 
