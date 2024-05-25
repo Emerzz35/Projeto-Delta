@@ -1,6 +1,6 @@
 Backend:
 []Login -
-[]Pedidos -
+[]Pedidos 
 [x]Endereco editar e deletar
 [x]Perfil 
 [x]Carrinho

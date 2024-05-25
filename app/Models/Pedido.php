@@ -26,4 +26,10 @@ class Pedido extends Model
     public function PedidoItem(){
         return $this->hasMany(PedidoItem::class,'PEDIDO_ID','PEDIDO_ID');
     }
+    public function calcularPrecoTotal()
+    {
+        return $this->PedidoItem->sum(function($item) {
+            return $item->ITEM_PRECO * $item->ITEM_QTD;
+        });
+    }
 }

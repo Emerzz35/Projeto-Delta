@@ -30,7 +30,7 @@ class PedidoController extends Controller
                 'PRODUTO_ID' => $itemCarrinho->PRODUTO_ID,
                 'PEDIDO_ID' => $pedido->PEDIDO_ID,
                 'ITEM_QTD' => $itemCarrinho->ITEM_QTD,
-                'ITEM_PRECO' => $itemCarrinho->Produto->PRODUTO_PRECO
+                'ITEM_PRECO' => $itemCarrinho->Produto->preco_com_desconto
             ]);
 
             
@@ -44,5 +44,28 @@ class PedidoController extends Controller
             'ITEM_QTD' => 0
         ]);
         return back();
+    }
+    function index(){
+        $pedidos = Pedido::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+        ->with('Endereco')
+        ->with('PedidoStatus')
+        ->with(['PedidoItem' => function($query) {
+            $query->with('Produto');
+        }])
+        ->get();
+
+        $pedidos->each(function($pedido) {
+            $pedido->preco_total = $pedido->calcularPrecoTotal();
+        });
+        
+
+       
+
+    
+        dd($pedidos);
+        return view('pedidos');
+       //     ->with('itens', $itens);
+
+
     }
 }

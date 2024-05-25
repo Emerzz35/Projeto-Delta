@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/endereco/{endereco}',[EnderecoController::class,'update'])->name('endereco.update');
     Route::get('/endereco/{endereco}/delete',[EnderecoController::class,'delete'])->name('endereco.delete');
     Route::post('/pedido',[PedidoController::class,'store'])->name('pedido.store');
-    
+    Route::get('/pedidos',[PedidoController::class,'index'])->name('pedido.index');
     
     
 });
