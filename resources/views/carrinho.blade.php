@@ -75,7 +75,8 @@
     </div>
     
     <!--Barrinha  DropDown endereço e Botão comprar -->
-    <form action="" method="post">
+    <form action="{{route('pedido.store')}}" method="post">
+        @csrf
 
         <select name="ENDERECO_NOME" id="ENDERECO_NOME">
             @foreach ($enderecos as $endereco)

@@ -42,14 +42,25 @@ class CarrinhoController extends Controller
             ->with('precoTotal', $precoTotal);
     }
     public function store(Produto $produto)
-    {
+{
+    $item = Carrinho::where('USUARIO_ID', Auth()->user()->USUARIO_ID)
+                    ->where('PRODUTO_ID', $produto->PRODUTO_ID)
+                    ->first();
+    if ($item) {
+        Carrinho::where('USUARIO_ID', Auth()->user()->USUARIO_ID)
+        ->where('PRODUTO_ID', $produto->PRODUTO_ID)->update([
+            'ITEM_QTD' => $item->ITEM_QTD + 1
+        ]);
+    } else {
         Carrinho::create([
             'USUARIO_ID' => Auth()->user()->USUARIO_ID,
             'PRODUTO_ID' => $produto->PRODUTO_ID,
             'ITEM_QTD' => 1
         ]);
-        return back();
     }
+    return back();
+}
+
     public function delete(Produto $produto)
     {
         $item = Carrinho::where('USUARIO_ID',Auth()->user()->USUARIO_ID)->where('PRODUTO_ID', $produto->PRODUTO_ID);

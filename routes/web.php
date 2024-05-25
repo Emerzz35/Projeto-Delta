@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\SobreController;
 use App\Models\Endereco;
 
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/endereco',[EnderecoController::class,'store'])->name('endereco.store');
     Route::put('/endereco/{endereco}',[EnderecoController::class,'update'])->name('endereco.update');
     Route::get('/endereco/{endereco}/delete',[EnderecoController::class,'delete'])->name('endereco.delete');
+    Route::post('/pedido',[PedidoController::class,'store'])->name('pedido.store');
+    
     
     
 });

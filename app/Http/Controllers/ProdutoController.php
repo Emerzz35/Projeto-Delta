@@ -18,8 +18,7 @@ class ProdutoController extends Controller
     }
 
     public function show(Produto $produto){
-        $produtos = $this->getProdutos()
-            ->whereNot('PRODUTO_ID', $produto->PRODUTO_ID);
+        $produtos = $this->getProdutos();
    
         return view('produto.show')
             ->with('produto', $produto)
