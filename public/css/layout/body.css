@@ -3,6 +3,10 @@ body{
     color: white;
     overflow-x: hidden;
 }
+.scroll{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .scroll::-webkit-scrollbar {
     border-radius: 50px;
     height: 8px;
@@ -32,4 +36,10 @@ body{
   body::-webkit-scrollbar-thumb {
     border-radius: 9px;
     background-color: #a9a7ba91;
+  }
+  a{
+    color: white;
+  }
+  p{
+    color: white;
   }

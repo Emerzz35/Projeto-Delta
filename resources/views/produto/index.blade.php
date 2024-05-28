@@ -42,6 +42,7 @@
             <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navdrop">  
                 @if (Auth::check()) 
                 <a href="{{route('profile.edit')}}" class="dropdown-item">Ver perfil</a>
+                <a href="{{route('pedido.index')}}" class="dropdown-item">Ver pedidos</a>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

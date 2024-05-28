@@ -62,9 +62,9 @@ class PedidoController extends Controller
        
 
     
-        dd($pedidos);
-        return view('pedidos');
-       //     ->with('itens', $itens);
+        
+        return view('pedidos')
+        ->with('pedidos', $pedidos);
 
 
     }
