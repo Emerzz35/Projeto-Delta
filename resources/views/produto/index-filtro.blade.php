@@ -47,7 +47,7 @@
                     @csrf
                 </form>
                 @else
-                <a href="{{route('profile.edit')}}" class="dropdown-item" data-toggle="modal" data-target="#updateProfileModal">Faça Login</a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#updateProfileModal">Faça Login</a>
                 <a href="{{ route('register') }}" class="dropdown-item">Registrar</a>
                 @endif  
             </div>
@@ -149,7 +149,7 @@
         <h2 id='h2-footer'>Delta | </h2>
         <p id='p-footer'> Precisa de ajuda ou suporte técnico? Acesse nossa seção de suporte para obter assistência!</p>
         <div id='div-footer'>
-            <a href="">Home</a> | 
+        <a href="{{route('produto.index')}}">Home</a> |
             <a href="">Suporte</a> | 
             <a href="">Termos legais</a> | 
             <a href="">Política de privacidade</a>

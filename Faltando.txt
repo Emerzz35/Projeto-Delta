@@ -1,26 +1,25 @@
 Backend:
-[]Login -
-[]Pedidos 
+[x]Login 
+[x]Pedidos 
 [x]Endereco editar e deletar
 [x]Perfil 
 [x]Carrinho
 
 FrontEnd:
 []Perfil
-[]Pedidos -
+[x]Pedidos
 []Carrinho
 []Detalhes Endereco
 []Detalhes na home
 []Detalhes no Show
 
 Detalhes:
-[]Produto Show
 [x]Footer
-[]Header
+[x]Header
 [x]Hovers na home 
 [x]Descontos 
 [x]Filtros home 
 [x]Pesquisa
-[]Icone e titulo nas paginas
+[x]Icone e titulo nas paginas
 []Verificador de estoque no carrinho
 [x]Link no cadastrar Usuario 

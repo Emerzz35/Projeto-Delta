@@ -88,3 +88,7 @@ a.logo:hover {
 .dropdown-toggle::after {
     display: none; 
 }
+.pesquisa{
+    padding: 0;
+    background-color: transparent;
+}

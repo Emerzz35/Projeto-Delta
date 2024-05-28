@@ -4,8 +4,43 @@
     transform: translate(118%, 50%);
 }
 
-.modal-dialog{
+.modal-body{
     background-color: #2E3136;
  
 }
+.fade{
+    overflow: visible !important;
+}
+.modal-content{
+    background-color: transparent;
+    border-color: transparent;
+}
 
+.fr{
+    width: 80%;
+    background-color: #59606d;
+    border: none;
+}
+
+.bts{
+    margin: 10% 1% 1% 70%;
+    align-items: flex-end;
+    overflow: auto;
+}
+.modal-backdrop{
+    background-color: #334550;
+    opacity: 0.8;
+}
+.close{
+    width: 20px;
+    height: 30px;
+    position: relative;
+    left: 95%;
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+}
+.modal-title{
+    top: 30px;
+    position: relative;
+}

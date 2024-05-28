@@ -30,7 +30,7 @@
     <div class="form-outline" data-mdb-input-init>
         <input type="search" id="form1" name="query" class="form-control" placeholder="Pesquise" />
     </div>
-    <button type="submit" class="btn" data-mdb-ripple-init>
+    <button type="submit" class="btn pesquisa" data-mdb-ripple-init>
         <box-icon id="search" name='search' size="2rem" color="white" class="fas fa-search"></box-icon>
     </button>
 </form>
@@ -48,13 +48,12 @@
                     @csrf
                 </form>
                 @else
-                <a href="{{route('profile.edit')}}" class="dropdown-item" data-toggle="modal" data-target="#updateProfileModal">Faça Login</a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#updateProfileModal">Faça Login</a>
                 <a href="{{ route('register') }}" class="dropdown-item">Registrar</a>
                 @endif  
             </div>
         </div>
     </div>
-    <div class="bx bx-menu" id="menu-icon"></div>
 </header>
 
 <section class="fundoCarrosel">
@@ -172,7 +171,7 @@
         <h2 id='h2-footer'>Delta | </h2>
         <p id='p-footer'> Precisa de ajuda ou suporte técnico? Acesse nossa seção de suporte para obter assistência!</p>
         <div id='div-footer'>
-            <a href="">Home</a> | 
+        <a href="{{route('produto.index')}}">Home</a> |
             <a href="">Suporte</a> | 
             <a href="">Termos legais</a> | 
             <a href="">Política de privacidade</a>
@@ -182,32 +181,38 @@
 
 <!-- Modal Login -->
 
-    <div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
-        <div>
-            <h2>Login</h2>
+<div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="updateProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <h5 class="modal-title" id="updateProfileModalLabel">Login</h5>    
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="font-size: 1.3rem;">&times;</span>
+        </button>       
             <div class="modal-body">
                 <form class="fm" method="POST" action="{{ route('login') }}">
                     @csrf
-                    @method('patch')
                     <div class="form-group">
-                        <label for="USUARIO_EMAIL">E-mail</label>
-                        <input type="email" class="form-control fr" id="USUARIO_EMAIL" name="USUARIO_EMAIL" placeholder="E-mail" >
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control fr" id="email" name="email" placeholder="E-mail">
                     </div>
-                        <label for="USUARIO_SENHA">Senha</label>
-                        <input type="password" class="form-control fr" id="USUARIO_SENHA" name="USUARIO_SENHA" placeholder="Senha">
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" class="form-control fr" id="password" name="password" placeholder="Senha">
                     </div>
-                    <button type="submit" class="btn btn-primary bt">Continuar</button>
+            
+                    <button type="submit" class="btn btn-primary bt bts">Continuar</button>
                 </form>
-            </div>
             </div>
         </div>
     </div>
 </div>
 
+
 <!--Script do Slick e do Bootstrap-->
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script src="/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+
+
 <!-- Script do Carrossel -->
 <script type="text/javascript">
     $(".center").slick({
@@ -278,6 +283,17 @@
     }
 };
 </script>
+
+    <!-- Script para abrir o modal -->
+    <script>
+        $(document).ready(function(){
+            @if(session('showModal'))
+                $('#updateProfileModal').modal('show');
+            @endif
+        });
+    </script>
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

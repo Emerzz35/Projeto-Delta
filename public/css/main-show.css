@@ -3,8 +3,8 @@
 @import 'base/reset.css';
 @import 'layout/body.css';
 @import 'layout/CarrosselShow.css';
+@import 'layout/dropdown.css';
 @import 'layout/nav.css';
 @import 'layout/card.css';
-@import 'layout/dropdown.css';
 @import 'layout/outros.css';
 @import 'layout/footer.css';
