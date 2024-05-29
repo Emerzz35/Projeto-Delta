@@ -70,7 +70,7 @@
         </div>
         <div class="form-group">
             <label for="USUARIO_CPF">CPF</label>
-            <input type="text" class="form-control fr" id="USUARIO_CPF" name="USUARIO_CPF" placeholder="Seu CPF" maxlength="11">
+            <input type="number" class="form-control fr" id="USUARIO_CPF" name="USUARIO_CPF" placeholder="Seu CPF" maxlength="11">
         </div>
         <div class="form-group">
             <label for="USUARIO_SENHA">Senha</label>
