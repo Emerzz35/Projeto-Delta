@@ -74,8 +74,10 @@
             <p id="Carrossel-Hover-Desc">{{ $produtos[0]->PRODUTO_DESC}}</p>
         </div>
         <div id="car2">
-            <p id="Carrossel-Hover-Preco">R$ {{ number_format($produtos[0]->PRODUTO_PRECO, 2, ',', '.') }}</p>
-            <box-icon name='cart-add' color="white" size="3.5rem" id="carrinho" animation='tada-hover'></box-icon>
+            <p id="Carrossel-Hover-Preco">R$ {{ number_format($produtos[0]->preco_com_desconto, 2, ',', '.') }}</p>
+            <a href="{{ route('carrinho.store',$produtos[0])}}" id="Carrossel-Hover-Carrinho">
+                                <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
+            </a>
         </div>
     </div>
 </section>
@@ -116,7 +118,7 @@
                     </a>
                     <div class="col-md-3 card-col col-3-desconto">
                         <div class="card-preco">
-                            <p class="card-text">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>
+                            <p class="card-text desconto">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>
                             <div class="preco-desconto">
                             <p class="card-text preco-sem-desconto">R$ {{ number_format($produto->PRODUTO_PRECO, 2, ',', '.') }}</p>
                             <p class="card-text preco-com-desconto">R$ {{ number_format($produto->preco_com_desconto, 2, ',', '.') }}</p>
@@ -157,10 +159,10 @@
     </div>
 
     <div class="card-info">
-        <h5 id="info-title" class="card-title">Título do Produto</h5>
-        <p id="info-category" class="card-text categoria">Categoria do Produto</p>
-        <img id="info-image" src="" alt="Imagem do Produto" class="img-fluid rounded-start">
-        <p id="info-description" class="card-text card-desc scroll">Descrição do Produto</p>
+        <h5 id="info-title" class="card-title"></h5>
+        <p id="info-category" class="card-text categoria"></p>
+        <img id="info-image" src="./assets/Assets temporarios/placeholder.png" alt="Imagem do Produto" class="img-fluid rounded-start ">
+        <p id="info-description" class="card-text card-desc scroll"></p>
     </div>
 </div>
 
@@ -230,22 +232,26 @@
         const Categoria = document.getElementById('Carrossel-Hover-Categoria');
         const Desc = document.getElementById('Carrossel-Hover-Desc');
         const Preco = document.getElementById('Carrossel-Hover-Preco');
+        const Carrinho = document.getElementById('Carrossel-Hover-Carrinho');
 
         if (nextSlide == 0) {
             Titulo.innerHTML = '{{ $produtos[0]->PRODUTO_NOME }}';
             Categoria.innerHTML = '{{ $produtos[0]->Categoria->CATEGORIA_NOME }}';
             Desc.innerHTML = '{{ $produtos[0]->PRODUTO_DESC }}';
-            Preco.innerHTML = "R$ {{ number_format($produtos[0]->PRODUTO_PRECO, 2, ',', '.') }}";
+            Preco.innerHTML = "R$ {{ number_format($produtos[0]->preco_com_desconto, 2, ',', '.') }}";
+            Carrinho.href = "{{ route('carrinho.store',$produtos[0])}}";
         } else if (nextSlide == 1) {
             Titulo.innerHTML = '{{ $produtos[1]->PRODUTO_NOME }}';
             Categoria.innerHTML = '{{ $produtos[1]->Categoria->CATEGORIA_NOME }}';
             Desc.innerHTML = '{{ $produtos[1]->PRODUTO_DESC }}';
             Preco.innerHTML = "R$ {{ number_format($produtos[1]->PRODUTO_PRECO, 2, ',', '.') }}";
+            Carrinho.href = "{{ route('carrinho.store',$produtos[1])}}";
         } else if (nextSlide == 2) {
             Titulo.innerHTML = '{{ $produtos[2]->PRODUTO_NOME }}';
             Categoria.innerHTML = '{{ $produtos[2]->Categoria->CATEGORIA_NOME }}';
             Desc.innerHTML = '{{ $produtos[2]->PRODUTO_DESC }}';
             Preco.innerHTML = "R$ {{ number_format($produtos[2]->PRODUTO_PRECO, 2, ',', '.') }}";
+            Carrinho.href = "{{ route('carrinho.store',$produtos[2])}}";
         }
     });
 </script>

@@ -114,3 +114,10 @@ width: 30%;
 .col-5-desconto{
 width: 35.666667%;
 }
+.desconto{
+    background-color: #00903A;
+}
+.preco-sem-desconto{
+    color: #59606D;
+    text-decoration: line-through;
+}

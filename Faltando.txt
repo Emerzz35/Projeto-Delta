@@ -21,5 +21,6 @@ Detalhes:
 [x]Filtros home 
 [x]Pesquisa
 [x]Icone e titulo nas paginas
-[]Verificador de estoque no carrinho
 [x]Link no cadastrar Usuario 
+[]Verificador de estoque no carrinho
+[]Comprar reduzir o estoque

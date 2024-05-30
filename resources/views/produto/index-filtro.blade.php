@@ -94,7 +94,7 @@
                     </a>
                     <div class="col-md-3 card-col col-3-desconto">
                         <div class="card-preco">
-                            <p class="card-text">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>
+                        <p class="card-text desconto">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>
                             <div class="preco-desconto">
                             <p class="card-text preco-sem-desconto">R$ {{ number_format($produto->PRODUTO_PRECO, 2, ',', '.') }}</p>
                             <p class="card-text preco-com-desconto">R$ {{ number_format($produto->preco_com_desconto, 2, ',', '.') }}</p>
