@@ -158,11 +158,11 @@
         @endforeach
     </div>
 
-    <div class="card-info">
+    <div class="card-info scroll">
         <h5 id="info-title" class="card-title"></h5>
         <p id="info-category" class="card-text categoria"></p>
         <img id="info-image" src="./assets/Assets temporarios/placeholder.png" alt="Imagem do Produto" class="img-fluid rounded-start ">
-        <p id="info-description" class="card-text card-desc scroll"></p>
+        <p id="info-description" class="card-text card-desc"></p>
     </div>
 </div>
 

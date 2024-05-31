@@ -134,11 +134,11 @@
         @endforeach
     </div>
 
-    <div class="card-info">
+    <div class="card-info scroll">
         <h5 id="info-title" class="card-title">Título do Produto</h5>
         <p id="info-category" class="card-text categoria">Categoria do Produto</p>
         <img id="info-image" src="" alt="Imagem do Produto" class="img-fluid rounded-start">
-        <p id="info-description" class="card-text card-desc scroll">Descrição do Produto</p>
+        <p id="info-description" class="card-text card-desc">Descrição do Produto</p>
     </div>
 </div>
 

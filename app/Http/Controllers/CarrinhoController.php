@@ -6,6 +6,7 @@ use App\Models\Carrinho;
 use App\Models\Produto;
 use App\Models\Categoria;
 use App\Models\Endereco;
+use App\Models\Estoque;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,12 +59,21 @@ class CarrinhoController extends Controller
             'ITEM_QTD' => 1
         ]);
     }
+
+    $produto->Estoque->update([
+        'PRODUTO_QTD'=>$produto->Estoque->PRODUTO_QTD - 1
+    ]);
     return back();
 }
 
     public function delete(Produto $produto)
     {
         $item = Carrinho::where('USUARIO_ID',Auth()->user()->USUARIO_ID)->where('PRODUTO_ID', $produto->PRODUTO_ID);
+        
+        $produto->Estoque->update([
+            'PRODUTO_QTD'=>$produto->Estoque->PRODUTO_QTD + $item->first()->ITEM_QTD
+        ]);
+
         $item->update([
             'ITEM_QTD' => 0
         ]);
@@ -76,6 +86,10 @@ class CarrinhoController extends Controller
         $item->update([
             'ITEM_QTD' => $total
         ]);
+
+        $produto->Estoque->update([
+            'PRODUTO_QTD'=>$produto->Estoque->PRODUTO_QTD + 1
+        ]);
         return back();
     }
     public function adicionar(Produto $produto)
@@ -84,6 +98,10 @@ class CarrinhoController extends Controller
         $total = $item->first()->ITEM_QTD +1;
         $item->update([
             'ITEM_QTD' => $total
+        ]);
+
+        $produto->Estoque->update([
+            'PRODUTO_QTD'=>$produto->Estoque->PRODUTO_QTD - 1
         ]);
         return back();
     }

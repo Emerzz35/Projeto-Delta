@@ -10,7 +10,7 @@ FrontEnd:
 [x]Pedidos
 []Carrinho
 [x]Detalhes Endereco
-[]Detalhes na home
+[x]Detalhes na home
 []Detalhes no Show
 
 Detalhes:
@@ -23,4 +23,4 @@ Detalhes:
 [x]Icone e titulo nas paginas
 [x]Link no cadastrar Usuario 
 []Verificador de estoque no carrinho
-[]Comprar reduzir o estoque
+[x]Adicionar no carrinho reduzir o estoque
