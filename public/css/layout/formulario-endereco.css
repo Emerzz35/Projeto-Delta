@@ -1,23 +1,12 @@
 
 
-.formu{
-    
-    position: relative;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, 20.5%);
-    width: 50%;
-    height: 50%;
-    
-    box-sizing: border-box;
-    
-}
 form{
     background-color: #2e3136;
 }
 
 .fm{
     padding: 5% 10% 5% 7%;
+    width: 100%;
     
 
 }
@@ -44,5 +33,22 @@ form{
 .form-bts{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
 }
-
+.deletar{
+    line-height: 1.5rem;
+    color: #5CA4F9;
+}
+.accordion-button{
+    text-align: left;
+}
+.Adicionar{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;  
+    padding: 0;
+    margin-bottom: 6vh;
+}
+.Adicionar a{
+    color: #5CA4F9;
+}

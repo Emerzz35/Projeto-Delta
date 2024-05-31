@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ Auth()->user()->USUARIO_NOME}}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/main-pedidos.css">
+    <link rel="stylesheet" href="/css/main-perfil.css">
     <link rel="icon" type="image/x-icon" href="/assets/logo.png">
 
 </head>
@@ -56,22 +56,24 @@
     </div>
 </header>
 
+
+    <section class="container perfil">
     <!-- Nome -->
-    {{ $user->USUARIO_NOME }}
+    <p>Nome: {{ $user->USUARIO_NOME }}</p>
     <!-- Email -->
-    {{ $user->USUARIO_EMAIL }}
+    <p>Email: {{ $user->USUARIO_EMAIL }}</p>
     <!-- CPF -->
-    {{ $user->USUARIO_CPF }}
+    <p>Cpf:{{ $user->USUARIO_CPF }}</p>
 
     <a href="#" data-toggle="modal" data-target="#updateProfileModal">
     Editar Perfil
     </a>
-
+    </section>
 
 
 
     <!-- Coisinhos de endereço -->
-    <div class="container mt-5">
+    <div class="container mt-5 scroll">
         <div class="accordion" id="accordionExample">
             @foreach ($user->endereco as $endereco)
             @if ($endereco->ENDERECO_APAGADO == 0) 
@@ -116,31 +118,41 @@
                                 <input type="text" class="form-control fr" id="ENDERECO_LOGRADOURO"
                                     name="ENDERECO_LOGRADOURO" value="{{$endereco->ENDERECO_LOGRADOURO}}">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group linha-dupla">
+                            <div class="Metade">
                                 <label for="ENDERECO_NUMERO">Numero</label>
                                 <input type="text" class="form-control fr" id="ENDERECO_NUMERO" name="ENDERECO_NUMERO"
                                     value="{{$endereco->ENDERECO_NUMERO}}">
                             </div>
-                            <div class="form-group">
+                            
+                            <div class="Metade">
                                 <label for="ENDERECO_COMPLEMENTO">Complemento</label>
                                 <input type="text" class="form-control fr" id="ENDERECO_COMPLEMENTO"
                                     name="ENDERECO_COMPLEMENTO" value="{{$endereco->ENDERECO_COMPLEMENTO}}">
                             </div>
+                            </div>
 
-                            <div class="form-group">
+                            <div class="form-group linha-dupla">
+                            <div class="Metade">
                                 <label for="ENDERECO_CIDADE">Cidade</label>
                                 <input type="text" class="form-control fr" id="ENDERECO_CIDADE" name="ENDERECO_CIDADE"
                                     value="{{$endereco->ENDERECO_CIDADE}}">
                             </div>
-                            <div class="form-group">
+                            
+                            <div class="Metade">
                                 <label for="ENDERECO_ESTADO">Estado</label>
                                 <input type="text" class="form-control fr" id="ENDERECO_ESTADO" name="ENDERECO_ESTADO"
                                     value="{{$endereco->ENDERECO_ESTADO}}" maxlength="2">
                             </div>
+                            </div>
+                            <div class="form-group form-bts">
                             <button type="submit" class="btn btn-primary bt">Editar endereço</button>
+                            
+                            <a href="{{route('endereco.delete', $endereco->ENDERECO_ID)}}" class="deletar">Deletar endereço</a>
+                            </div>
                         </form>
 
-                        <a href="{{route('endereco.delete', $endereco->ENDERECO_ID)}}">Deletar endereço</a>
+                       
 
                     </div>
                 </div>
@@ -148,9 +160,11 @@
             @endif
             @endforeach
         </div>
-        <a href="{{route('endereco.create')}}">Adicionar endereço</a>
+      
     </div>
-
+    <div class="Adicionar container">
+    <a href="{{route('endereco.create')}}">Adicionar endereço</a>
+    </div>
     <!-- Modal editar Usuario -->
     <!-- Botão para abrir o modal -->
 

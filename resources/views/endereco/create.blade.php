@@ -51,7 +51,10 @@
         </div>
     </div>
 </header>
+
+
 <section class="formu">
+    <h1>Adicionar Endereco</h1>
 <form class="fm" method="POST" action="{{ route('endereco.store') }}">
         @csrf
 
@@ -67,23 +70,33 @@
             <label for="ENDERECO_LOGRADOURO">Logradouro</label>
             <input type="text" class="form-control fr" id="ENDERECO_LOGRADOURO" name="ENDERECO_LOGRADOURO" placeholder="Logradouro">
         </div>
-        <div class="form-group">
+        <div class="form-group linha-dupla">
+            <div class="Metade">
             <label for="ENDERECO_NUMERO">Numero</label>
             <input type="text" class="form-control fr" id="ENDERECO_NUMERO" name="ENDERECO_NUMERO" placeholder="Numero">
-        </div>
-        <div class="form-group">
+            </div>
+
+            <div class="Metade">
             <label for="ENDERECO_COMPLEMENTO">Complemento</label>
             <input type="text" class="form-control fr" id="ENDERECO_COMPLEMENTO" name="ENDERECO_COMPLEMENTO" placeholder="Complemento">
+            </div>
+
         </div>
-        <div class="form-group">
+        <div class="form-group linha-dupla">
+            <div class="Metade">
             <label for="ENDERECO_CIDADE">Cidade</label>
             <input type="text" class="form-control fr" id="ENDERECO_CIDADE" name="ENDERECO_CIDADE" placeholder="Cidade">
-        </div>
-        <div class="form-group">
+            </div>
+
+            <div class="Metade">
             <label for="ENDERECO_ESTADO">Estado</label>
             <input type="text" class="form-control fr" id="ENDERECO_ESTADO" name="ENDERECO_ESTADO" placeholder="Estado" maxlength="2">
+            </div>
+
         </div>
-            <button type="submit" class="btn btn-primary bt">Adicionar Endereço</button>
+        <div class="form-group form-bts">
+            <button type="submit" class="btn btn-primary bts">Adicionar Endereço</button>
+        </div>
     </form>
 </section>
 <footer style="bottom: 0;">

@@ -1,0 +1,27 @@
+.perfil{
+    margin-top: 13vh;
+    background-color: #2E3136;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.perfil p{
+    font-size: 1.5rem;
+}
+.perfil a{
+    margin-left: 91%;
+    color: #5CA4F9;
+}
+.card{
+    background-color: #2E3136;
+    margin-bottom: 3vh;
+}
+.mt-5{
+    padding: 0;
+    min-height: 44vh;
+    margin-bottom: 0;
+    max-height: fit-content;
+}
+.modal-content{
+    background-color: #2E3136;   
+}
