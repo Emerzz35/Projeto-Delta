@@ -11,7 +11,7 @@ FrontEnd:
 []Carrinho
 [x]Detalhes Endereco
 [x]Detalhes na home
-[]Detalhes no Show
+[x]Detalhes no Show
 
 Detalhes:
 [x]Footer
@@ -24,3 +24,4 @@ Detalhes:
 [x]Link no cadastrar Usuario 
 []Verificador de estoque no carrinho
 [x]Adicionar no carrinho reduzir o estoque
+[]Arrumar Login do Header

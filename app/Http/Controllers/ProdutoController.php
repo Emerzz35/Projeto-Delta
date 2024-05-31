@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -19,7 +18,11 @@ class ProdutoController extends Controller
 
     public function show(Produto $produto){
         $produtos = $this->getProdutos();
-   
+        
+        // Aplicar o cálculo de desconto ao produto atual
+        $produto = $this->calcularDesconto($produto);
+
+
         return view('produto.show')
             ->with('produto', $produto)
             ->with('produtos', $produtos);
@@ -37,34 +40,25 @@ class ProdutoController extends Controller
     }
 
     public function FiltroPesquisa(Request $request)
-{
-    $query = $request->input('query');
-    $produtos = Produto::with('estoque')
-        ->where('PRODUTO_ATIVO', 1)
-        ->whereHas('estoque', function($query) {
-            $query->where('PRODUTO_QTD', '>', 0);
-        })
-        ->where('PRODUTO_NOME', 'like', '%' . $query . '%')
-        ->get()
-        ->map(function($produto) {
-            $produto->preco_com_desconto = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
-            if($produto->PRODUTO_DESCONTO > 0){   
-                $produto->porcentagem_desconto = ($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO) * 100;
-            } else {
-                $produto->porcentagem_desconto = 0;
-            }
-            return $produto;
-        });
+    {
+        $query = $request->input('query');
+        $produtos = Produto::with('estoque')
+            ->where('PRODUTO_ATIVO', 1)
+            ->whereHas('estoque', function($query) {
+                $query->where('PRODUTO_QTD', '>', 0);
+            })
+            ->where('PRODUTO_NOME', 'like', '%' . $query . '%')
+            ->get()
+            ->map(function($produto) {
+                return $this->calcularDesconto($produto);
+            });
 
-    $categorias = Categoria::all();
+        $categorias = Categoria::all();
 
-    return view('produto.index-filtro')
-        ->with('produtos', $produtos)
-        ->with('categorias', $categorias);
-}
-
-
-
+        return view('produto.index-filtro')
+            ->with('produtos', $produtos)
+            ->with('categorias', $categorias);
+    }
 
     public function FiltroOfertas()
     {
@@ -72,8 +66,6 @@ class ProdutoController extends Controller
             ->sortByDesc('porcentagem_desconto'); // Use sortByDesc para ordenar a coleção
         $categorias = Categoria::all();
         
-         
-    
         return view('produto.index')
             ->with('produtos', $produtos)
             ->with('categorias', $categorias);
@@ -88,13 +80,18 @@ class ProdutoController extends Controller
             })
             ->get()
             ->map(function($produto) {
-                $produto->preco_com_desconto = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
-                if($produto->PRODUTO_DESCONTO > 0){   
-                    $produto->porcentagem_desconto = ($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO) * 100;
-                } else {
-                    $produto->porcentagem_desconto = 0;
-                }
-                return $produto;
+                return $this->calcularDesconto($produto);
             });
+    }
+
+    private function calcularDesconto($produto)
+    {
+        $produto->preco_com_desconto = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+        if ($produto->PRODUTO_DESCONTO > 0) {
+            $produto->porcentagem_desconto = ($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO) * 100;
+        } else {
+            $produto->porcentagem_desconto = 0;
+        }
+        return $produto;
     }
 }

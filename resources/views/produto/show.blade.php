@@ -94,13 +94,29 @@
 
 
       </section>
+      @if ($produto->porcentagem_desconto>=1)
       <section class="Comprar">
-            <p>Comprar {{$produto->PRODUTO_NOME}}</p>
+        <p class="Titulo-Comprar">Comprar {{$produto->PRODUTO_NOME}}</p>
+        <div class="card-preco comprar-desconto">
+      <p class="card-text desconto">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>
+                            <div class="preco-desconto">
+                            <p class="card-text preco-sem-desconto">R$ {{ number_format($produto->PRODUTO_PRECO, 2, ',', '.') }}</p>
+                            <p class="card-text preco-com-desconto">R$ {{ number_format($produto->preco_com_desconto, 2, ',', '.') }}</p>
+                            </div>
+                            <a href="{{ route('carrinho.store',$produto)}}" class="btVerde btComprar">
+                                <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon>
+                            </a>
+        </div>
+         </section>
+         @else
+         <section class="Comprar">
+         <p class="Titulo-Comprar">Comprar {{$produto->PRODUTO_NOME}}</p>
             <div class="BtFundo">
                <P> R$ {{$produto->PRODUTO_PRECO}} </P>
                <a class="btVerde" href="{{ route('carrinho.store',$produto)}}"> <box-icon name='cart-add' color="white" size="2rem" animation='tada-hover'></box-icon> </a>
             </div>
-         </section>
+            </section>
+            @endif
    
 
    <?php // Outros Produtos 
@@ -132,9 +148,9 @@
                     </a>
                     <div class="col-md-3 card-col col-3-desconto">
                         <div class="card-preco">
-                        <p class="card-text desconto">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>
+                        <p class="card-text desconto">-{{ number_format($item->porcentagem_desconto, 0, ',', '.') }}%</p>
                             <div class="preco-desconto">
-                            <p class="card-text preco-sem-desconto">R$ {{ number_format($produto->PRODUTO_PRECO, 2, ',', '.') }}</p>
+                            <p class="card-text preco-sem-desconto">R$ {{ number_format($item->PRODUTO_PRECO, 2, ',', '.') }}</p>
                             <p class="card-text preco-com-desconto">R$ {{ number_format($item->preco_com_desconto, 2, ',', '.') }}</p>
                             </div>
                             <a href="{{ route('carrinho.store',$item)}}">
