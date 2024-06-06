@@ -53,68 +53,129 @@
         </div>
     </div>
 </header>
+<div class="container titulo"><h1>Seu Carrinho</h1></div>
 
+   <main class="container">
     <!-- Cards -->
+    <div class="card-group scroll">
     @foreach ($itens as $item)
     @if ($item->produto->porcentagem_desconto>=1)
     <!-- Produtos Com desconto -->
-    <div>
+    <div class="card mb-3">
+    <div class="row g-0">  
         <!-- Imagem  -->
+        <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-3 card-col"> 
         @if ($item->Produto->Imagens->isNotEmpty())
         <img src="{{ $item->Produto->Imagens->first()->IMAGEM_URL }}" alt="" id="ImagemDireita">
         @endif
+        </a>
+
+        <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-5 card-col">
+        <div class="card-body">
         <!-- Nome  -->
-        {{ $item->Produto->PRODUTO_NOME }}
+        <h5 class="card-title">{{ $item->Produto->PRODUTO_NOME }}</h5>
         <!-- Categoria  -->
-        {{ $item->Produto->Categoria->CATEGORIA_NOME }}
+        <p class="card-text categoria"> {{ $item->Produto->Categoria->CATEGORIA_NOME }}</p>
+        </div>
+        </a>
+
+        <div class="col-md-3 card-col col-3-desconto">
+        <div class="card-preco com-desconto">
         <!-- Porcentagem desconto  -->
-        -{{ number_format($item->produto->porcentagem_desconto, 0, ',', '.') }}%
+        <p class="card-text desconto">-{{ number_format($item->produto->porcentagem_desconto, 0, ',', '.') }}%</p>
+        <div class="preco-desconto">
         <!-- Preço antes do desconto -->
-        R$ {{ number_format($item->produto->PRODUTO_PRECO, 2, ',', '.') }}
+        <p class="card-text preco-sem-desconto">R$ {{ number_format($item->produto->PRODUTO_PRECO, 2, ',', '.') }}</p>
         <!-- Preço Depois do desconto -->
-        R$ {{ number_format($item->produto->preco_com_desconto, 2, ',', '.') }}
+        <p class="card-text preco-com-desconto" style="margin-bottom: 0 !important;">R$ {{ number_format($item->produto->preco_com_desconto, 2, ',', '.') }}</p>
+         <!-- Botão Remover -->
+         <a href="{{ route('carrinho.delete', $item->Produto) }}">Remover</a>
+        </div>
+        </div>
+        </div>
+
+        <div class="col-md-1 card-col">
+        <div class="Qtd">
         <!-- Quantidade  -->
-        {{ $item->ITEM_QTD }}
-        <!-- Botão Remover -->
-        <a href="{{ route('carrinho.delete', $item->Produto) }}">Remover</a>
+         <p class="qtd-t">Qnt</p>
+        <p class="qtd-p">{{ $item->ITEM_QTD }}</p>
+
         <!-- Botão Remover unidade -->
-        <a href="{{ route('carrinho.remover', $item->Produto) }}">-</a>
+        <div class="qtd-bts">
+        <a href="{{ route('carrinho.remover', $item->Produto) }}" class="bt-">-</a>
         <!-- Botão Adicionar -->
-        <a href="{{ route('carrinho.adicionar', $item->Produto) }}">+</a>
+        @if ( $item->Produto->Estoque->PRODUTO_QTD>0) 
+        <a href="{{ route('carrinho.adicionar', $item->Produto) }}" class="bt-add">+</a>
+        @else
+        <div class="bt-">+</div>
+        @endif
+        </div>
+        </div>
+        </div>
+    </div>
     </div>
     @else
     <!-- Produtos sem desconto -->
-    <div>
+    <div class="card mb-3">
+    <div class="row g-0">  
         <!-- Imagem  -->
+        <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-3 card-col"> 
         @if ($item->Produto->Imagens->isNotEmpty())
         <img src="{{ $item->Produto->Imagens->first()->IMAGEM_URL }}" alt="" id="ImagemDireita">
         @endif
+        </a>
+
+        <a href="{{route('produto.show', $item->PRODUTO_ID)}}" class="col-md-6 card-col">
+                        <div class="card-body">
         <!-- Nome  -->
-        {{ $item->Produto->PRODUTO_NOME }}
+        <h5 class="card-title">{{ $item->Produto->PRODUTO_NOME }} </h5>
+
         <!-- Categoria  -->
-        {{ $item->Produto->Categoria->CATEGORIA_NOME }}
+        <p class="card-text categoria">{{ $item->Produto->Categoria->CATEGORIA_NOME }}</p>
+        </div>
+        </a>
         <!-- Preço  -->
-        {{ $item->Produto->PRODUTO_PRECO }}
+        <div class="col-md-2 card-col">
+        <div class="card-preco sem-desconto">
+        <p class="card-text"> R$ {{ number_format($item->produto->PRODUTO_PRECO, 2, ',', '.') }} </p>
+                <!-- Botão Remover -->
+                <a href="{{ route('carrinho.delete', $item->Produto) }}">Remover</a>
+        </div>
+        </div>
+
+        <div class="col-md-1 card-col">
+        <div class="Qtd">
         <!-- Quantidade  -->
-        {{ $item->ITEM_QTD }}
-        <!-- Botão Remover -->
-        <a href="{{ route('carrinho.delete', $item->Produto) }}">Remover</a>
+         <p class="qtd-t">Qnt</p>
+        <p class="qtd-p">{{ $item->ITEM_QTD }}</p>
+
         <!-- Botão Remover unidade -->
-        <a href="{{ route('carrinho.remover', $item->Produto) }}">-</a>
+        <div class="qtd-bts">
+        <a href="{{ route('carrinho.remover', $item->Produto) }}" class="bt-">-</a>
         <!-- Botão Adicionar -->
-        <a href="{{ route('carrinho.adicionar', $item->Produto) }}">+</a>
+         @if ( $item->Produto->Estoque->PRODUTO_QTD>0) 
+        <a href="{{ route('carrinho.adicionar', $item->Produto) }}" class="bt-add">+</a>
+        @else
+        <div class="bt-">+</div>
+        @endif
+        </div>
+        </div>
+        </div>
+    </div>
     </div>
     @endif
     @endforeach
+    </div>
+    <hr>
     
     <!-- barrinha de preço total-->
-    <div>
         <!-- Preço Total -->
-        <div>
-            <p>Total: R$ {{ number_format($precoTotal, 2, ',', '.') }}</p>
+        <div class="total">
+            <p class="total-p">Total: R$ {{ number_format($precoTotal, 2, ',', '.') }}</p>
         </div>
-    </div>
-    
+        <hr>
+ 
+        <div class="endereco-comprar">
     <!--Barrinha  DropDown endereço e Botão comprar -->
     <form action="{{route('pedido.store')}}" method="post">
         @csrf
@@ -125,11 +186,12 @@
             @endforeach
         </select>
         
-        <button type="submit">Comprar</button>
+        <button type="submit" class="btn btn-success">Comprar</button>
         
     </form>
-
+        </div>
     <a href="{{route('endereco.create')}}">Adicionar novo endereço</a>
+    </main>
 
 
 

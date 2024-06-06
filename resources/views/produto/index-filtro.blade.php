@@ -61,6 +61,7 @@
 <div class="filtros">
     <a href="{{route('produto.index')}}"class="filtro" id="Novidades">Novidades</a>
     <a class="filtro" href="{{ route('produto.filtro-ofertas') }}">Ofertas</a>
+    
     <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle filtro-ativo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Categorias
@@ -92,6 +93,7 @@
                             <p class="card-text categoria">{{$produto->Categoria->CATEGORIA_NOME}}</p>
                         </div>
                     </a>
+
                     <div class="col-md-3 card-col col-3-desconto">
                         <div class="card-preco">
                         <p class="card-text desconto">-{{ number_format($produto->porcentagem_desconto, 0, ',', '.') }}%</p>

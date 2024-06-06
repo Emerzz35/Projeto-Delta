@@ -1,0 +1,106 @@
+main{
+    background: rgb(128,125,171);
+    background: linear-gradient(180deg, rgba(128,125,171,1) 90%, rgba(58,57,73,0) 100%);
+    padding: 2rem;
+    padding: 2rem 2rem 7rem;
+    margin-bottom: 7vh;
+}
+h1{
+    margin-top: 12vh;
+}
+.titulo{
+    padding: 0;
+}
+.sem-desconto{
+    display: flex;
+    flex-direction: column;
+}
+.card-group{
+width: unset;
+padding: 0;
+max-height: 49vh;
+}
+.Qtd{
+    background-color: black;
+    width: 100%;
+    margin-right: -31%;
+    height: 100%;
+}
+.qtd-t{
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 1.4rem;
+
+}
+.qtd-p{
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 2rem;
+}
+.qtd-bts{
+    height: 32%;
+    display: flex;
+}
+.bt-{
+    display: block;
+    width: 50%;
+    background-color: indianred;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 1.5rem;
+    cursor: pointer;
+}
+.bt-add{
+    display: block;
+    width: 50%;
+    background-color: darkgreen;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 1.5rem;
+}
+.card-body{
+    margin-left: 0;
+}
+hr{
+    width: 100%;
+    margin: 11px 0;
+    color: #9B95E3;
+    background-color: #9B95E3;
+    height: 3px;
+  }
+  .com-desconto{
+    justify-content: flex-end;
+  }
+  .total{
+    background-color: #444168;
+    height: 3rem;
+    display: flex;
+    flex-direction: row-reverse
+  }
+  .total-p{
+    font-size: 1.5rem;
+    line-height: 2;
+    margin-right: 3%;
+  }
+  .endereco-comprar{
+    background-color: #444168;
+    height: 4rem;
+  }
+  form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+  }
+  select{
+    min-width: 25%;
+    background-color: #59606D;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn-success{
+    padding: 0 14px;
+    height: 100%;
+}

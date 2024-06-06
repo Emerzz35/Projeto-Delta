@@ -54,7 +54,7 @@
     flex-direction: column;
     overflow-y: scroll;
     flex-wrap: nowrap;
-    margin-left: 3%;
+    padding: 0 3%;
 
 }
 
@@ -62,7 +62,7 @@
   
   .cardall{
     display: flex;
-    width: 75%;
+
   }
   hr{
     width: 99%;

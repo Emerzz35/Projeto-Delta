@@ -132,7 +132,7 @@
                                             <div class="col-md-2 card-col">
                                                 <div class="card-preco">
                                                     <p class="card-text">R$
-                                                        {{ number_format($produto->produto->PRODUTO_PRECO, 2, ',', '.') }}
+                                                        {{ number_format($produto->ITEM_PRECO, 2, ',', '.') }}
                                                     </p>
                                                    
                                                 </div>

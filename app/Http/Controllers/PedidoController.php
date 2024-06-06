@@ -22,15 +22,17 @@ class PedidoController extends Controller
         // BUSCA O CARRINHO DO USUARIO
         $itensCarrinho = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
             ->where('ITEM_QTD', '>', 0)
+            ->with('Produto')
             ->get(); 
         // FOR PARA ITEM DO CARRINHO > 0 UNIDADES
+     
         foreach($itensCarrinho as $itemCarrinho){
             // CRIA NA TABELA DE PEDIDO ITEM
             PedidoItem::create([
                 'PRODUTO_ID' => $itemCarrinho->PRODUTO_ID,
                 'PEDIDO_ID' => $pedido->PEDIDO_ID,
                 'ITEM_QTD' => $itemCarrinho->ITEM_QTD,
-                'ITEM_PRECO' => $itemCarrinho->Produto->preco_com_desconto
+                'ITEM_PRECO' => $itemCarrinho->Produto->PRODUTO_PRECO-$itemCarrinho->Produto->PRODUTO_DESCONTO
             ]);
 
             
