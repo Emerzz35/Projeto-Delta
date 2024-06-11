@@ -45,7 +45,9 @@ class PedidoController extends Controller
         ->update([
             'ITEM_QTD' => 0
         ]);
-        return back();
+        return redirect('/pedidos');
+
+
     }
     function index(){
         $pedidos = Pedido::where('USUARIO_ID', Auth::user()->USUARIO_ID)

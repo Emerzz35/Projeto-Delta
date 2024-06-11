@@ -24,4 +24,3 @@ Detalhes:
 [x]Link no cadastrar Usuario 
 [x]Verificador de estoque no carrinho
 [x]Adicionar no carrinho reduzir o estoque
-[]Arrumar Login do Header
